@@ -4,17 +4,138 @@
       <title>Example</title>
 
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+
+
+      <link rel="stylesheet" href="assets/styles/style.css" media="screen" title="no title" charset="utf-8">
+
+     <script type="text/javascript" src="main.js">
+
+      </script>
+    </head>
+
+    <body class="container-fluid">
+
+
+      <nav>
+           <h1>
+             Tic Tac Toe
+           </h1>
+      </nav>
+
+  <div class="forms">
+                    <form id="sign-up">
+
+                 <fieldset>
+                   <legend>Sign up!</legend>
+
+
+                   <input type="text" name="user[id]" placeholder="user" id="user-name">
+
+                   <input type="text" name="credentials[email]" placeholder="e-mail" id="user-email">
+
+                   <input type="password" name="credentials[password]" placeholder="password" id="user-password">
+
+                   <input type="password" name="credentials[password_confirmation]" placeholder="password_confirmation" id="user-password-confirm">
+
+
+
+                   <input type="submit" name="submit" value="Sign up!">
+                 </fieldset>
+               </form>
+
+
+               <form id="sign-in">
+                 <fieldset>
+                   <legend>Sign in!</legend>
+
+                   <input type="text" name="user[id]" placeholder="user">
+
+                   <input type="text" name="credentials[email]" placeholder="e-mail">
+                   <input type="password" name="credentials[password]" placeholder="password">
+
+                   <input type="submit" name="submit" value="Sign in!">
+                 </fieldset>
+               </form>
+
+
+
+               <form id="change-password">
+                 <fieldset>
+                   <legend>Change password!</legend>
+
+                   <input type="text" name="user[id]" placeholder="user">
+
+                   <input type="password" name="passwords[old]" placeholder="old password">
+                   <input type="password" name="passwords[new]" placeholder="new password">
+
+                   <input type="submit" name="submit" value="Change password!">
+                 </fieldset>
+               </form>
+
+               <form id="sign-out">
+                 <fieldset>
+                   <legend>Sign Out!</legend>
+
+
+                   <input type="submit" name="submit" value="Sign Out">
+                 </fieldset>
+               </form>
+
+    </div>
+
+
+        <div class="container">
+                <main>
+                       <div class="board" id="R1C1" >
+                       </div>
+                       <div class="board" id="R1C2" >
+                       </div>
+                       <div class="board" id="R1C3" >
+                       </div>
+                       <div class="board" id="R2C1" >
+                       </div>
+                       <div class="board" id="R2C2" >
+                       </div>
+                       <div class="board" id="R2C3" >
+                       </div>
+                       <div class="board" id="R3C1" >
+                       </div>
+                       <div class="board" id="R3C2" >
+                       </div>
+                       <div class="board" id="R3C3" >
+                       </div>
+
+                       <div class="reset">
+                         <input type="button" name="name" value="RESET GAME">
+                       </div>
+                </main>
+
+                    <aside >
+                      <div class="winner">
+                        <form class="winner" action="index.html" method="post">
+                          <p id="nextPlayer">
+                            Next player:
+                          </p>
+
+                          <p id=winner>
+                            Winner is:
+                          </p>
+                        </form>
+                      </div>
+                    </aside>
+
+        </div>
+
+    <footer>
+      <p>
+        This game was created by Natasa Peic - WDI 13
+
+  </p>
+
+    </footer>
+
+
     </body>
 </html>

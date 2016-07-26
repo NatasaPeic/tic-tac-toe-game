@@ -1,0 +1,93 @@
+.forms {
+    margin-top: 50px;
+    float: left;
+    margin-left: 10%;
+    margin-bottom: 100px;
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+}
+
+nav {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: orange;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.board {
+    border: 1px solid orange;
+    float: left;
+    width: 30%;
+    max-width: 100px;
+    height: 100px;
+    margin: 5px;
+}
+
+main {
+    margin-left: 25%;
+    width: 100%;
+    max-width: 350px;
+    overflow: hidden;
+    float: left;
+}
+
+.container {
+  clear: both;
+  margin-left: 50%;
+}
+
+
+aside {
+  width: 25%;
+  background-color: orange;
+  height: 330px;
+  float: left;
+}
+
+.players {
+  float: left;
+}
+
+p {
+  padding: 30px;
+  text-align: center;
+}
+
+.winner {
+  float: left;
+}
+
+.reset {
+  clear: both;
+  width: 100%;
+  margin-left: 5px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+}
+
+footer {
+  background-color: orange;
+  height: 80px;
+  margin: 0 auto;
+  width: 80%;
+  clear: both;
+}
+
+
+@media (max-width: 600px){
+  main {
+    margin-left: 0px;
+  }
+
+  aside {
+    width: 100%;
+
+  }
+
+}
