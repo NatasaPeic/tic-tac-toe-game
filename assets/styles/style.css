@@ -1,3 +1,15 @@
+.X {
+    color: #B43104;
+    font-size: 70px;
+    margin: 25%;
+  }
+
+  .O {
+    color: #86B404;
+    font-size: 70px;
+    margin: 25%;
+  }
+
 .forms {
     margin-top: 50px;
     float: left;

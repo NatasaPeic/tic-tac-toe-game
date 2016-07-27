@@ -8,7 +8,7 @@ const success = (data) => {
   console.log($('#user-name').val());
   console.log($('#user-email').val());
   console.log($('#user-password').val());
-  console.log($('#user-password-confirm').val());
+  console.log($('#user-password').val());
 
 
 };
@@ -17,6 +17,8 @@ const success = (data) => {
 const signInSuccess = (data) => {
   app.user = data.user;
   console.log(app);
+  console.log($('#user-name').val());
+  console.log($('#user-email').val());
 
 };
 
