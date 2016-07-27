@@ -29,7 +29,7 @@ nav {
 }
 
 main {
-    margin-left: 25%;
+    margin-left: 35%;
     width: 100%;
     max-width: 350px;
     overflow: hidden;
@@ -43,10 +43,15 @@ main {
 
 
 aside {
-  width: 25%;
+  width: 80%;
+  margin: 0 auto;
+  max-width: 400px;
   background-color: orange;
-  height: 330px;
+  height: 200px;
+  margin-left: 32%;
   float: left;
+  clear: both;
+  margin-bottom: 50px;
 }
 
 .players {
@@ -86,7 +91,7 @@ footer {
   }
 
   aside {
-    width: 100%;
+    width: 50%
 
   }
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-curl "http://tic-tac-toe.wdibos.com/" \
+curl "http://tic-tac-toe.wdibos.com" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \

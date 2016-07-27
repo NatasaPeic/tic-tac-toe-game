@@ -2,7 +2,7 @@
 
 #!/bin/bash
 
-API="http://tic-tac-toe.wdibos.com/"
+API="http://tic-tac-toe.wdibos.com"
 
 curl ${API} \
   --include \
