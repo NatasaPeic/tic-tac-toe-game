@@ -77,8 +77,8 @@
           };
 
 let game = function () {
-//
-// let gameBoard = ["", "", "", "", "", "", "", "", ""];
+
+let gameBoard = ["", "", "", "", "", "", "", "", ""];
 
     let turn = "O";
 
@@ -93,37 +93,13 @@ let game = function () {
             cell.html("<span class='X'><b>X</b></span>");
             cell.val("X");
 
-            // for (let i = 0; i < gameBoard.length; i++) {
-            //
-            //   gameBoard.splice(1, 0, cell.val());
-            //
-            //
-            // }
+            let index = gameBoard.indexOf("");
 
-            // array.splice(2, 0, "three");
+                if (index !== -1) {
+                    gameBoard[index] = "X";
+                }
 
-            //
-            // gameBoard.splice([i], 0, cell.val());
-
-
-             // have an array with 9 elements
-
-            // looping through an array that has 9 elements
-            // for (let i = 0; i < gameBoard.length; i++) {
-            //
-            //   gameBoard.each(cell[i].val());
-            //
-              // console.log(gameBoard);
-            //
-            //
-            //     }
-
-
-            //
-            // gameBoard.push(cell.val());
-
-            // console.log(gameBoard);
-
+                console.log(gameBoard);
 
 
                  $(this).off();
@@ -137,27 +113,15 @@ let game = function () {
             cell.html("<span class='O'><b>O</b></span>");
             cell.val("O");
 
-            //
-            // for (let i = 0; i < gameBoard.length; i++) {
-            //
-            //   gameBoard.splice([i], 0, cell.val());
-            //
-            //
-            // }
+            let index = gameBoard.indexOf("");
+
+                if (index !== -1) {
+                    gameBoard[index] = "O";
+                }
+
+                console.log(gameBoard);
 
 
-
-
-            // for (let i = 0; i < gameBoard.length; i++) {
-            // cell.each(gameBoard[i].val());
-            //
-            //     }
-
-
-
-            // gameBoard.push(cell.val());
-
-            // console.log(gameBoard);
 
             $(this).off();
 
@@ -169,6 +133,8 @@ let game = function () {
     );
 
 };
+
+
 
 $(document).ready(game());
 

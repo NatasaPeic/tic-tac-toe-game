@@ -10,6 +10,8 @@ const success = (data) => {
   console.log($('#user-password').val());
   console.log($('#user-password').val());
 
+  data.user = app.user;
+
 
 };
 
