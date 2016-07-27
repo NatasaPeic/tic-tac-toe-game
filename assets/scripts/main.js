@@ -47,21 +47,25 @@
 
             }
 
-            // diagonally
+            // diagonally X left to right
             if($("#R1C1").text() === "X" &&  $("#R1C1").text() === $("#R2C2").text() && $("#R1C1").text() === $("#R3C3").text()){
 
               alert("X won!");
 
+
+            // diagonally O left to right
             } else if ($("#R1C1").text() === "O" &&  $("#R1C1").text() === $("#R2C2").text() && $("#R1C1").text() === $("#R3C3").text()) {
 
               alert("O won!");
             }
 
-
+            // diagonally X right to left
             if($("#R1C3").text() === "X" &&  $("#R1C3").text() === $("#R2C2").text() && $("#R1C3").text() === $("#R3C1").text()){
 
               alert("X won!");
 
+
+            // diagonally X right to lef
             } else if ($("#R1C3").text() === "O" &&  $("#R1C3").text() === $("#R2C2").text() && $("#R1C3").text() === $("#R3C1").text()) {
 
               alert("O won!");
