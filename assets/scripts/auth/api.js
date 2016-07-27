@@ -41,15 +41,45 @@ const signOut = () => $.ajax({
   }
 });
 
-
+// no data passed
 const create = () => $.ajax({
 
     url: app.api + '/games/',
     method: 'POST',
     data: app.user,
+    //added headers
     headers: {
       Authorization: 'Token token=' + app.user.token,
     }
+
+});
+
+
+
+// app.gameId = <game id from response data>
+//
+// Then you'll be able to access it from show() with
+//
+// const show = () => $.ajax({
+// method: 'GET',
+// url: app.api + '/games/' + app.gameId,
+// });
+
+
+
+
+
+
+
+const show = () => $.ajax({
+
+      method: 'GET',
+      url: app.api + '/games/' + app.game.id,
+      data: app.game,
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      }
+
 
 });
 
@@ -59,6 +89,7 @@ module.exports = {
   signIn,
   changePassword,
   signOut,
-  create
+  create,
+  show
 
 };

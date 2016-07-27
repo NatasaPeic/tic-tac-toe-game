@@ -7,26 +7,28 @@ const onSuccess = function (data) {
   if (data.game) {
     console.log(data.game);
   }
+app.game = data.game;
+
 };
 
 const success = (data) => {
   console.log(data);
-  console.log($('#user-name').val());
-  console.log($('#user-email').val());
-  console.log($('#user-password').val());
-  console.log($('#user-password').val());
+
 
 
 };
 
 
 const signInSuccess = (data) => {
-  app.user = data.user;
-  console.log(app);
-  console.log($('#user-name').val());
-  console.log($('#user-email').val());
 
-  console.log(data.user);
+  app.user = data.user;
+
+  app.game = data.game;
+
+  console.log(app);
+
+
+
 
 
 };

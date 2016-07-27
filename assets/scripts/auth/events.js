@@ -73,6 +73,17 @@ const onCreateGame = function (event) {
 };
 
 
+const onGetGame = function(event){
+
+  event.preventDefault();
+
+    api.show()
+    .done(ui.signInSuccess)
+    .fail(ui.onError);
+
+};
+
+
 
 const addHandlers = () => {
 
@@ -81,7 +92,12 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword);
   $('#sign-out').on('submit', onSignOut);
 
+
+  // create new game
   $('#game-create').on('submit', onCreateGame);
+
+  //show game
+  $('#game-request').on('submit', onGetGame);
 
 };
 
