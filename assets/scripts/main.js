@@ -139,11 +139,25 @@ let whoWon = function () {
             cell.html("<span class='X'><b>X</b></span>");
             cell.val("X");
 
+
+
             let index = gameBoard.indexOf("");
 
                 if (index !== -1) {
                     gameBoard[index] = "X";
                 }
+
+                //  let counterNew = 0;
+                 //
+                //   $('.board').on('click', function () {
+                 //
+                //    counterNew++
+                //
+                //  });
+
+
+
+
 
                 console.log(gameBoard);
 

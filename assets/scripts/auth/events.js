@@ -78,11 +78,21 @@ const onGetGame = function(event){
   event.preventDefault();
 
     api.show()
-    .done(ui.signInSuccess)
+    .done(ui.getSuccess)
     .fail(ui.onError);
+
 
 };
 
+
+const onUpdateGame = function (event) {
+
+  event.preventDefault();
+
+  api.update(event.target)
+  .done(ui.onUpdate)
+  .fail(ui.onError);
+};
 
 
 const addHandlers = () => {
@@ -98,6 +108,9 @@ const addHandlers = () => {
 
   //show game
   $('#game-request').on('submit', onGetGame);
+
+  //update a game
+  $('#game-update').on('submit', onUpdateGame);
 
 };
 

@@ -6,15 +6,16 @@ const app = require('../app');
 const onSuccess = function (data) {
   if (data.game) {
     console.log(data.game);
+  } else {
+    console.log(data.games);
   }
 app.game = data.game;
 
 };
 
+
 const success = (data) => {
   console.log(data);
-
-
 
 };
 
@@ -22,24 +23,37 @@ const success = (data) => {
 const signInSuccess = (data) => {
 
   app.user = data.user;
-
-  app.game = data.game;
-
-  console.log(app);
-
-
-
-
+  console.log(data);
 
 };
+
+const getSuccess = (data) => {
+
+  app.game = data.game;
+  console.log(data.game);
+
+};
+
 
 const signOutSuccess = () => {
   delete app.user;
-  console.log(app);
+  console.log('You sign out succesfully!');
 };
+
 
 const failure = (error) => {
   console.error(error);
+};
+
+
+const onUpdate = function (data) {
+  if (data.game) {
+    console.log(data.game);
+  } else {
+    console.log(data.games);
+  }
+
+
 };
 
 
@@ -48,5 +62,7 @@ module.exports = {
   success,
   signInSuccess,
   signOutSuccess,
-  onSuccess
+  onSuccess,
+  onUpdate,
+  getSuccess
 };

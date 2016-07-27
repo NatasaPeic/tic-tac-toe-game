@@ -56,21 +56,6 @@ const create = () => $.ajax({
 
 
 
-// app.gameId = <game id from response data>
-//
-// Then you'll be able to access it from show() with
-//
-// const show = () => $.ajax({
-// method: 'GET',
-// url: app.api + '/games/' + app.gameId,
-// });
-
-
-
-
-
-
-
 const show = () => $.ajax({
 
       method: 'GET',
@@ -83,6 +68,33 @@ const show = () => $.ajax({
 
 });
 
+// let newMove =   {
+//   "game": {
+//     "cell": {
+//       "index": index
+//       "value": value
+//     },
+//     "over": over
+//   }
+// },
+
+const update = () => $.ajax({
+
+
+  method: 'PATCH',
+  url: app.api + '/games/' + app.game.id,
+
+  headers: {
+    Authorization: 'Token token=' + app.user.token,
+  },
+  // data:
+
+
+
+
+});
+
+
 
 module.exports = {
   signUp,
@@ -90,6 +102,7 @@ module.exports = {
   changePassword,
   signOut,
   create,
-  show
+  show,
+  update
 
 };
