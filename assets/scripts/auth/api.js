@@ -82,14 +82,21 @@ const update = () => $.ajax({
 
 
   method: 'PATCH',
+  // got a game.id from show a game success message
   url: app.api + '/games/' + app.game.id,
 
   headers: {
     Authorization: 'Token token=' + app.user.token,
   },
-  // data:
-
-
+  data: {
+    "game": {
+        "cell": {
+        "index": 0,
+        "value": "x"
+    },
+        "over": false
+  }
+}
 
 
 });

@@ -66,7 +66,7 @@ const onCreateGame = function (event) {
 
   event.preventDefault();
 
-  api.create(event.target)
+  api.create()
     .done(ui.onSuccess)
     .fail(ui.onError);
 

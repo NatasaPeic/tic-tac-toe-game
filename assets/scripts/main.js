@@ -147,19 +147,38 @@ let whoWon = function () {
                     gameBoard[index] = "X";
                 }
 
-                //  let counterNew = 0;
-                 //
-                //   $('.board').on('click', function () {
-                 //
-                //    counterNew++
-                //
-                //  });
+        //         let index = ;
+        //
+        //
+        // for (let i = 0; i < gameBoard.length; i++) {
+        //   gameBoard[key] = gameBoard[index];
+        //   gameBoard[value] = gameBoard[value];
+        //   console.log(gameBoard);
+        // }
+
+
+
+        // let key=[];
+        // let value=[];
+        //
+        // gameBoard.forEach(function(){
+        //
+        //   for (let i = 0; i < gameBoard.length; i++) {
+        //
+        //     key.push(i);
+        //     value.push(i);
+        //   }
+        //
+        // });
+        //
+        // console.log(key);
+        // console.log(value);
 
 
 
 
 
-                console.log(gameBoard);
+                // console.log(gameBoard);
 
 
                  $(this).off();
