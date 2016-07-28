@@ -134,12 +134,10 @@ let whoWon = function () {
         // 1 element
               if ($("#R1C1").text() === "X"){
 
-<<<<<<< f7652028b36e747337c216e9d211dc7b4bb16e98
-
                 gameBoard[0] = $("#R1C1").text();
-=======
+
                 gameBoard[0] = "X";
->>>>>>> Add main.js
+
 
               } else if ($("#R1C1").text() === "O") {
                 gameBoard[0] = "O";
@@ -276,11 +274,6 @@ let whoWon = function () {
 
 // so if someone clicks gameBoard[0], the key will be [0] and value will be "X";
 
-
-
-
-
-<<<<<<< f7652028b36e747337c216e9d211dc7b4bb16e98
             //
             //   if($(this).val() === "X"){
             //
@@ -303,8 +296,7 @@ let whoWon = function () {
 
 
 
-=======
->>>>>>> Add main.js
+
                  $(this).off();
 
                  winner();
