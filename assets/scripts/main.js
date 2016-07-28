@@ -99,18 +99,7 @@ let gameBoard = ["", "", "", "", "", "", "", "", ""];
     let checkWinner = 0;
     let counter = 0;
 
-  //
-  //   if (myWinnerFlag == 0 && myStepCounter == 9) {
-  // 		if(document.all) {
-  // 			document.getElementById("PLAYER").innerText = "";
-  // 			document.getElementById("WINNER").innerText = "Let's call it a draw!";
-  // 		}
-  // 		else {
-  // 			document.getElementById("PLAYER").textContent = "";
-  // 			document.getElementById("WINNER").textContent = "Let's call it a draw!";
-  // 		}
-  // 	}
-  // }
+
 
 let whoWon = function () {
 
@@ -120,8 +109,6 @@ let whoWon = function () {
          }
 
 };
-
-
 
 
 
@@ -147,62 +134,7 @@ let whoWon = function () {
                     gameBoard[index] = "X";
                 }
 
-        //         let index = ;
-        //
-        //
-        // for (let i = 0; i < gameBoard.length; i++) {
-        //   gameBoard[key] = gameBoard[index];
-        //   gameBoard[value] = gameBoard[value];
-        //   console.log(gameBoard);
-        // }
 
-
-
-        // let key=[];
-        // let value=[];
-        //
-        // gameBoard.forEach(function(){
-        //
-        //   for (let i = 0; i < gameBoard.length; i++) {
-        //
-        //     key.push(i);
-        //     value.push(i);
-        //   }
-        //
-        // });
-        //
-        // console.log(key);
-        // console.log(value);
-
-
-
-
-        // for (let key in gameBoard) {
-        //   console.log("key " + key + " has value " + gameBoard[key]);
-        // }
-
-
-
-        // $.each(gameBoard, function(key, value) {
-        //     console.log(key);
-        //     console.log(value);
-        // });
-
-
-
-        // $.each(gameBoard, function(key, value) {
-        //       // alert(key);
-        //       alert(value);
-        // });
-
-
-
-        //
-        // for (let i = 0; i < index; i++) {
-        //   let newIndex = gameBoard[i];
-        //
-        //   alert(newIndex);
-        // }
 
 
 
@@ -231,14 +163,7 @@ let whoWon = function () {
 
                 console.log(gameBoard);
 
-                // for (let i = 0; i < index ; i++) {
-                //   let newIndex = gameBoard[i];
-                //
-                //   alert(newIndex);
-                // }
-
-
-
+            
 
             $(this).off();
 
