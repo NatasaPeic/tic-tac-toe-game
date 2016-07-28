@@ -177,8 +177,41 @@ let whoWon = function () {
 
 
 
+        // for (let key in gameBoard) {
+        //   console.log("key " + key + " has value " + gameBoard[key]);
+        // }
 
-                // console.log(gameBoard);
+        //
+        // $.each(gameBoard, function(key, value) {
+        //     console.log(key);
+        //     console.log(value);
+        // });
+
+
+
+
+
+        // $.each(gameBoard, function(key, value) {
+        //       // alert(key);
+        //       alert(value);
+        // });
+
+
+
+
+        for (let i = 0; i < gameBoard.length; i++) {
+          let newIndex = gameBoard[i];
+
+          alert(newIndex);
+        }
+
+
+
+
+
+
+
+                console.log(gameBoard);
 
 
                  $(this).off();
