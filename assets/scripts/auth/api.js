@@ -83,7 +83,6 @@ const update = (index, value) => $.ajax({
   headers: {
     Authorization: 'Token token=' + app.user.token,
   },
-
    data: {
            "game": {
             "cell": {
@@ -93,9 +92,6 @@ const update = (index, value) => $.ajax({
 
   }
 }
-
-  // data: ,
-
 
 
 });

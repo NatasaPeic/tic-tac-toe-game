@@ -1,8 +1,8 @@
 'use strict';
 
 
-  // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").val("");
-
+const api = require ('./auth/api');
+const ui = require ('./auth/ui');
 
 
 
@@ -264,6 +264,10 @@ let whoWon = function () {
               let index = cell.data("index");
               let value = cell.val();
 
+              api.update(index, value)
+              .done(ui.onUpdate)
+              .fail(ui.onError);
+
               console.log(index);
               console.log(value);
 
@@ -437,14 +441,13 @@ let whoWon = function () {
 
                         console.log(gameBoard);
 
+
                         let index = cell.data("index");
                         let value = cell.val();
 
-                        console.log(index);
-                        console.log(value);
-
-
-
+                        api.update(index, value)
+                        .done(ui.onUpdate)
+                        .fail(ui.onError);
 
 
 
@@ -470,11 +473,18 @@ let whoWon = function () {
 $(document).ready(game());
 
 
+// $("#change-password, #sign-out, #game-create, #game-request, #game-update, .container, footer, nav").hide();
+
+// $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/HlnpcgY.png");
+//
+// $("body.container-fluid").css({'height': '1024px'});
+// $("body.container-fluid").css({'width': '2000px'});
+//
 
 $("#reset-button").click(function () {
 
         $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").empty();
-        $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").val("");
+        // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").val("");
         game();
 
   });
