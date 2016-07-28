@@ -46,11 +46,12 @@ const create = () => $.ajax({
 
     url: app.api + '/games/',
     method: 'POST',
-    data: app.user,
+
     //added headers
     headers: {
       Authorization: 'Token token=' + app.user.token,
-    }
+    },
+    data: '{}',
 
 });
 
@@ -60,7 +61,7 @@ const show = () => $.ajax({
 
       method: 'GET',
       url: app.api + '/games/' + app.game.id,
-      data: app.game,
+      // data: app.game,
       headers: {
         Authorization: 'Token token=' + app.user.token,
       }
@@ -68,15 +69,7 @@ const show = () => $.ajax({
 
 });
 
-// let newMove =   {
-//   "game": {
-//     "cell": {
-//       "index": index
-//       "value": value
-//     },
-//     "over": over
-//   }
-// },
+
 
 const update = () => $.ajax({
 
@@ -88,15 +81,7 @@ const update = () => $.ajax({
   headers: {
     Authorization: 'Token token=' + app.user.token,
   },
-  data: {
-    "game": {
-        "cell": {
-        "index": 0,
-        "value": "x"
-    },
-        "over": false
-  }
-}
+  data: app.game,
 
 
 });

@@ -181,13 +181,12 @@ let whoWon = function () {
         //   console.log("key " + key + " has value " + gameBoard[key]);
         // }
 
-        //
+
+
         // $.each(gameBoard, function(key, value) {
         //     console.log(key);
         //     console.log(value);
         // });
-
-
 
 
 
@@ -198,16 +197,12 @@ let whoWon = function () {
 
 
 
-
-        for (let i = 0; i < gameBoard.length; i++) {
-          let newIndex = gameBoard[i];
-
-          alert(newIndex);
-        }
-
-
-
-
+        //
+        // for (let i = 0; i < index; i++) {
+        //   let newIndex = gameBoard[i];
+        //
+        //   alert(newIndex);
+        // }
 
 
 
@@ -235,6 +230,13 @@ let whoWon = function () {
                 }
 
                 console.log(gameBoard);
+
+                // for (let i = 0; i < index ; i++) {
+                //   let newIndex = gameBoard[i];
+                //
+                //   alert(newIndex);
+                // }
+
 
 
 

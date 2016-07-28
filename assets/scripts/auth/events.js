@@ -89,7 +89,7 @@ const onUpdateGame = function (event) {
 
   event.preventDefault();
 
-  api.update(event.target)
+  api.update()
   .done(ui.onUpdate)
   .fail(ui.onError);
 };

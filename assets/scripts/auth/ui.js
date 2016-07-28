@@ -9,7 +9,10 @@ const onSuccess = function (data) {
   } else {
     console.log(data.games);
   }
+
 app.game = data.game;
+
+
 
 };
 
@@ -27,17 +30,32 @@ const signInSuccess = (data) => {
 
 };
 
+//create a new game
 const getSuccess = (data) => {
 
-  app.game = data.game;
-  console.log(data.game);
+  if (data.game) {
+    console.log(data.game);
+  } else {
+    console.log(data.games);
+  }
+
+app.game = data.game;
+
+
+
+
+
+  // app.game = data.game;
+  // // app.user = data.user
+  // console.log(data.game);
 
 };
 
 
 const signOutSuccess = () => {
-  delete app.user;
   console.log('You sign out succesfully!');
+  delete app.user;
+
 };
 
 
