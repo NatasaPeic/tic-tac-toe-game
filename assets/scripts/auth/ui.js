@@ -12,8 +12,6 @@ const onSuccess = function (data) {
 
 app.game = data.game;
 
-
-
 };
 
 
@@ -29,6 +27,7 @@ const signInSuccess = (data) => {
   console.log(data);
 
 };
+
 
 //create a new game
 const getSuccess = (data) => {

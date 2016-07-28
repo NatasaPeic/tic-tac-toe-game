@@ -123,18 +123,169 @@ let whoWon = function () {
             cell.val("X");
 
 
+// I have an array with 9 elements
+// I need to replace an element on a certain index that is connected with id of a box when it is clicked
 
-            let index = gameBoard.indexOf("");
+// So, each element in an array should represent an id of a box that is clicked
 
-                if (index !== -1) {
-                    gameBoard[index] = "X";
-                }
-
-
-
+        // 1 element
+              if ($("#R1C1").text() === "X"){
 
 
-                console.log(gameBoard);
+                gameBoard[0] = $("#R1C1").text();
+
+              } else if ($("#R1C1").text() === "O") {
+                gameBoard[0] = $("#R1C1").text();
+
+              }else {
+                gameBoard[0] = "";
+              }
+
+
+
+        // 2 element
+              if ($("#R1C2").text() === "X"){
+
+                gameBoard[1] = $("#R1C2").text();
+
+              } else if ($("#R1C2").text() === "O") {
+                gameBoard[1] = $("#R1C2").text();
+
+              }else {
+                gameBoard[1] = "";
+              }
+
+
+        // 3 element
+              if ($("#R1C3").text() === "X"){
+
+                gameBoard[2] = $("#R1C3").text();
+
+
+              } else if ($("#R1C3").text() === "O") {
+                gameBoard[2] = $("#R1C3").text();
+
+
+              }else {
+                gameBoard[2] = "";
+              }
+
+
+      // 4 element
+            if ($("#R2C1").text() === "X"){
+
+              gameBoard[3] = $("#R2C1").text();
+
+            } else if ($("#R2C1").text() === "O") {
+              gameBoard[3] = $("#R2C1").text();
+
+
+            }else {
+              gameBoard[3] = "";
+            }
+
+
+      // 5 element
+            if ($("#R2C2").text() === "X"){
+
+              gameBoard[4] = $("#R2C2").text();
+
+            } else if ($("#R2C2").text() === "O") {
+              gameBoard[4] = $("#R2C2").text();
+
+            }else {
+              gameBoard[4] = "";
+            }
+
+
+      // 6 element
+            if ($("#R2C3").text() === "X"){
+
+              gameBoard[5] = $("#R2C3").text();
+
+            } else if ($("#R2C2").text() === "O") {
+              gameBoard[5] = $("#R2C3").text();
+
+            }else {
+              gameBoard[5] = "";
+            }
+
+
+      // 7 element
+            if ($("#R3C1").text() === "X"){
+
+              gameBoard[6] = $("#R3C1").text();
+
+            } else if ($("#R3C1").text() === "O") {
+              gameBoard[6] = $("#R3C1").text();
+
+            }else {
+              gameBoard[6] = "";
+            }
+
+
+      // 8 element
+            if ($("#R3C2").text() === "X"){
+
+              gameBoard[7] = $("#R3C2").text();
+
+            } else if ($("#R3C2").text() === "O") {
+              gameBoard[7] = $("#R3C2").text();
+
+            }else {
+              gameBoard[7] = "";
+            }
+
+
+      // 8 element
+            if ($("#R3C3").text() === "X"){
+
+              gameBoard[8] = $("#R3C3").text();
+
+            } else if ($("#R3C3").text() === "O") {
+              gameBoard[8] = $("#R3C3").text();
+
+            }else {
+              gameBoard[8] = "";
+            }
+
+
+
+
+            console.log(gameBoard);
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //
+            //   if($(this).val() === "X"){
+            //
+            //    gameBoard.splice(1,0, $(this));
+            //
+            //   }
+            //
+            //
+            // console.log(gameBoard);
+
+                        //
+                        // let index = gameBoard.indexOf("");
+                        //
+                        //     if (index !== -1) {
+                        //         gameBoard[index] = "X";
+                        //     }
+                        //
+                        //     console.log(gameBoard);
+
+
 
 
                  $(this).off();
@@ -151,15 +302,136 @@ let whoWon = function () {
             cell.html("<span class='O'><b>O</b></span>");
             cell.val("O");
 
-            let index = gameBoard.indexOf("");
+            // let index = gameBoard.indexOf("");
+            //
+            //     if (index !== -1) {
+            //         gameBoard[index] = "O";
+            //     }
+            //
+            //     console.log(gameBoard);
+            //
+            //
 
-                if (index !== -1) {
-                    gameBoard[index] = "O";
-                }
+            // 1 element
+                  if ($("#R1C1").text() === "X"){
 
-                console.log(gameBoard);
+                    gameBoard[0] = $("#R1C1").text();
 
-            
+                  } else if ($("#R1C1").text() === "O") {
+                    gameBoard[0] = $("#R1C1").text();
+
+                  }else {
+                    gameBoard[0] = "";
+                  }
+
+
+                  // 2 element
+                        if ($("#R1C2").text() === "X"){
+
+                          gameBoard[1] = $("#R1C2").text();
+
+                        } else if ($("#R1C2").text() === "O") {
+                          gameBoard[1] = $("#R1C2").text();
+
+                        }else {
+                          gameBoard[1] = "";
+                        }
+
+
+                        // 3 element
+                              if ($("#R1C3").text() === "X"){
+
+                                gameBoard[2] = $("#R1C3").text();
+
+                              } else if ($("#R1C3").text() === "O") {
+                                gameBoard[2] = $("#R1C3").text();
+
+                              }else {
+                                gameBoard[2] = "";
+                              }
+
+
+                      // 4 element
+                            if ($("#R2C1").text() === "X"){
+
+                              gameBoard[3] = $("#R2C1").text();
+
+                            } else if ($("#R2C1").text() === "O") {
+                              gameBoard[3] = $("#R2C1").text();
+
+                            }else {
+                              gameBoard[3] = "";
+                            }
+
+
+                      // 5 element
+                            if ($("#R2C2").text() === "X"){
+
+                              gameBoard[4] = $("#R2C2").text();
+
+                            } else if ($("#R2C2").text() === "O") {
+                              gameBoard[4] = $("#R2C2").text();
+
+                            }else {
+                              gameBoard[4] = "";
+                            }
+
+
+                      // 6 element
+                            if ($("#R2C3").text() === "X"){
+
+                              gameBoard[5] = $("#R2C3").text();
+
+                            } else if ($("#R2C2").text() === "O") {
+                              gameBoard[5] = $("#R2C3").text();
+
+                            }else {
+                              gameBoard[5] = "";
+                            }
+
+
+                      // 7 element
+                            if ($("#R3C1").text() === "X"){
+
+                              gameBoard[6] = $("#R3C1").text();
+
+                            } else if ($("#R3C1").text() === "O") {
+                              gameBoard[6] = $("#R3C1").text();
+
+                            }else {
+                              gameBoard[6] = "";
+                            }
+
+
+                      // 8 element
+                            if ($("#R3C2").text() === "X"){
+
+                              gameBoard[7] = $("#R3C2").text();
+
+                            } else if ($("#R3C2").text() === "O") {
+                              gameBoard[7] = $("#R3C2").text();
+
+                            }else {
+                              gameBoard[7] = "";
+                            }
+
+
+                      // 8 element
+                            if ($("#R3C3").text() === "X"){
+
+                              gameBoard[8] = $("#R3C3").text();
+
+                            } else if ($("#R3C3").text() === "O") {
+                              gameBoard[8] = $("#R3C3").text();
+
+                            }else {
+                              gameBoard[8] = "";
+                            }
+
+
+    console.log(gameBoard);
+
+
 
             $(this).off();
 
@@ -187,46 +459,3 @@ $("#reset-button").click(function () {
         game();
 
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

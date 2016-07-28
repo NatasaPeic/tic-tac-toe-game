@@ -81,7 +81,6 @@ const onGetGame = function(event){
     .done(ui.getSuccess)
     .fail(ui.onError);
 
-
 };
 
 

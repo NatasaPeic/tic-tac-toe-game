@@ -2,6 +2,8 @@
 
 const app = require('../app');
 
+// const main = require('../main');
+
 
 
 const signIn = (data) => $.ajax({
@@ -51,7 +53,8 @@ const create = () => $.ajax({
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-    data: '{}',
+     data: app.user,
+    //  data: '{}',
 
 });
 
@@ -61,17 +64,16 @@ const show = () => $.ajax({
 
       method: 'GET',
       url: app.api + '/games/' + app.game.id,
-      // data: app.game,
+      data: app.game,
       headers: {
         Authorization: 'Token token=' + app.user.token,
       }
-
 
 });
 
 
 
-const update = () => $.ajax({
+const update = (index, value) => $.ajax({
 
 
   method: 'PATCH',
@@ -81,7 +83,15 @@ const update = () => $.ajax({
   headers: {
     Authorization: 'Token token=' + app.user.token,
   },
-  data: app.game,
+   data: {
+           "game": {
+            "cell": {
+           "index": index,
+           "value": value,
+                        },
+
+  }
+}
 
 
 });
