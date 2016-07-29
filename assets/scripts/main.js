@@ -122,9 +122,8 @@ let gameBoard = ["", "", "", "", "", "", "", "", ""];
 
 let whoWon = function () {
 
-
-         if(checkWinner === 0 && counter === 9 && !whoWon()){
-            alert("Nobody wins!");
+         if(checkWinner === 0 && counter === 9){
+            $("#message").text("Let's call it a draw!");
          }
 
 };
@@ -434,8 +433,9 @@ let whoWon = function () {
 
                  winner();
                  counter++;
+                 whoWon();
                 //  alert(counter);
-                whoWon();
+
 
 
           }
@@ -462,7 +462,11 @@ $("#button1, #button2").on("click", function () {
   $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/OQW1MIf.png");
   $("#sign-in, #sign-up").hide();
   $("#change-password, #sign-out").show();
+
+
   $(".container, footer").hide();
+
+
   $("#game-create").on("click", function () {
     $(".container, footer").show();
   });
