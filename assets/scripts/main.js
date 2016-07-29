@@ -24,7 +24,7 @@ const ui = require ('./auth/ui');
 
                 // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/yuj3hc1.png)");
 
-                // console.log("X won!");
+                // alert("X won!");
 
 
               // horizontally O
