@@ -326,7 +326,7 @@ webpackJsonp([0],[
 	'use strict';
 
 	var app = {
-	  api: 'http://tic-tac-toe.wdibos.com'
+	  api: 'https://aqueous-atoll-85096.herokuapp.com'
 	};
 
 	module.exports = app;
@@ -901,12 +901,12 @@ webpackJsonp([0],[
 
 	  var gameBoard = ["", "", "", "", "", "", "", "", ""];
 
-	  var checkWinner = 0;
+	  // let checkWinner = 0;
 	  var counter = 0;
 
 	  var whoWon = function whoWon() {
 
-	    if (checkWinner === 0 && counter === 9) {
+	    if (counter === 9) {
 	      $("#message").text("Let's call it a draw!");
 	    }
 	  };
@@ -1144,6 +1144,7 @@ webpackJsonp([0],[
 	      winner();
 	      counter++;
 	      whoWon();
+
 	      //  alert(counter);
 
 	    }
