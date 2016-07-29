@@ -60,10 +60,11 @@ const create = () => $.ajax({
 
 
 
-const show = () => $.ajax({
+
+const show = (data) => $.ajax({
 
       method: 'GET',
-      url: app.api + '/games/' + app.game.id,
+      url: app.api + '/games/' + data.game.id,
       data: app.game,
       headers: {
         Authorization: 'Token token=' + app.user.token,

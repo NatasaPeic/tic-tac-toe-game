@@ -39,6 +39,7 @@ const getSuccess = (data) => {
   }
 
 app.game = data.game;
+// console.log(data.game.cells);
 
 
 

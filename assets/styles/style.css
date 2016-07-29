@@ -4,6 +4,13 @@
     margin: 25%;
   }
 
+#message1 , #message{
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+
   .O {
     color: #86B404;
     font-size: 70px;
@@ -26,7 +33,7 @@ nav {
     width: 80%;
     margin: 0 auto;
     overflow: hidden;
-    background-color: orange;
+    background-color: #2cc431;
     padding: 20px;
     margin-top: 10px;
 }
@@ -89,7 +96,7 @@ p {
 }
 
 footer {
-  background-color: orange;
+  background-color: #2cc431;
   height: 80px;
   margin: 0 auto;
   width: 80%;

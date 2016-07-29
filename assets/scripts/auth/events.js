@@ -75,25 +75,18 @@ const onCreateGame = function (event) {
 
 const onGetGame = function(event){
 
+  let data = getFormFields(this);
+// console.log(data.game.id);
+
   event.preventDefault();
 
-    api.show()
+    api.show(data)
     .done(ui.getSuccess)
     .fail(ui.onError);
 
 };
 
 
-// const onUpdateGame = function (event) {
-//
-//
-//
-//   event.preventDefault();
-//
-//   api.update()
-//   .done(ui.onUpdate)
-//   .fail(ui.onError);
-// };
 
 
 const addHandlers = () => {

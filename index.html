@@ -22,7 +22,7 @@
 
       <nav>
            <h1>
-             Tic Tac Toe
+             TIC TAC TOE
            </h1>
       </nav>
 
@@ -30,92 +30,96 @@
                     <form id="sign-up">
 
                  <fieldset>
-                   <legend>Sign up!</legend>
+                   <legend>SIGN UP!</legend>
 
 
-                   <input type="text" name="user[id]" placeholder="user" id="user-name">
+                   <input type="text" name="user[id]" placeholder="NAME" id="user-name">
 
-                   <input type="text" name="credentials[email]" placeholder="e-mail" id="user-email">
+                   <input type="text" name="credentials[email]" placeholder="E-MAIL" id="user-email">
 
-                   <input type="password" name="credentials[password]" placeholder="password" id="user-password">
+                   <input type="password" name="credentials[password]" placeholder="PASSWORD" id="user-password">
 
-                   <input type="password" name="credentials[password_confirmation]" placeholder="password_confirmation" id="user-password-confirm">
+                   <input type="password" name="credentials[password_confirmation]" placeholder="CONFIRM PASSWORD" id="user-password-confirm">
 
-
-
-                   <input type="submit" name="submit" value="Sign up!">
+                   <input type="submit" id="button1" name="submit" value="SIGN UP!">
                  </fieldset>
                </form>
 
-
+<br>
                <form id="sign-in">
                  <fieldset>
-                   <legend>Sign in!</legend>
+                   <legend>SIGN IN!</legend>
 
-                   <input type="text" name="user[id]" placeholder="user">
+                   <input type="text" name="user[id]" placeholder="NAME">
 
-                   <input type="text" name="credentials[email]" placeholder="e-mail">
-                   <input type="password" name="credentials[password]" placeholder="password">
+                   <input type="text" name="credentials[email]" placeholder="E-MAIL">
+                   <input type="password" name="credentials[password]" placeholder="PASSWORD">
 
-                   <input type="submit" name="submit" value="Sign in!">
+                   <input type="submit" id="button2" name="submit" value="SIGN IN!">
                  </fieldset>
                </form>
-
-
-
+<br>
+<div id="message1">Password was changed succesfully!</div>
                <form id="change-password">
                  <fieldset>
-                   <legend>Change password!</legend>
+                   <legend>CHANGE PASSWORD!</legend>
 
-                   <input type="text" name="user[id]" placeholder="user">
+                   <input type="text" name="user[id]" placeholder="NAME">
 
-                   <input type="password" name="passwords[old]" placeholder="old password">
-                   <input type="password" name="passwords[new]" placeholder="new password">
+                   <input type="password" name="passwords[old]" placeholder="OLD PASSWORD">
+                   <input type="password" name="passwords[new]" placeholder="NEW PASSWORD">
 
-                   <input type="submit" name="submit" value="Change password!">
+                   <input type="submit" id="button3" name="submit" value="Change password!">
                  </fieldset>
                </form>
+               <br>
+
+
 
                <form id="sign-out">
                  <fieldset>
-                   <legend>Sign Out!</legend>
-
-
-                   <input type="submit" name="submit" value="Sign Out">
+                   <legend>SIGN OUT!</legend>
+                   <input type="submit"  name="submit" value="SIGN OUT">
                  </fieldset>
                </form>
 
 <br>
                <form action="#" id="game-create">
 
-                   <input type="Submit"  value="Start game!">
+                   <input type="Submit"  value="PLAY!">
 
-
-
-               </form>
 
 <br>
-
-               <form action="#" id="game-request">
-
-                   <input type="Submit" class= "game-id" value="Show a game!">
-
+   <br>
                </form>
 
-    <br>
 
-<!--
-    <form >
+               <!-- <form action="#" id="game-request">
+
+                   <input type="text" name="game[id]" placeholder="ID" value="ID">
+
+
+
+                   <input type="Submit" class= "game-id" value="LOAD A GAME!">
+
+               </form> -->
+
+
+</div>
+
+
+    <!-- <form >
       <input type="Submit" id="game-update"  value="Update a game!">
-    </form> -->
+    </form>
 
 
-    </div>
+    </div> -->
 
 
 
 
         <div class="container">
+          <div id="message"></div>
                 <main>
                        <div class="board" data-index="0" id="R1C1" >
                        </div>

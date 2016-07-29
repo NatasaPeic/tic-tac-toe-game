@@ -18,34 +18,40 @@ const ui = require ('./auth/ui');
               if($("#R" + i + "C1").text() === "X" && $("#R" + i + "C1").text() === $("#R" + i + "C2").text() &&
               $("#R" + i + "C1").text() === $("#R" + i + "C3").text()){
 
-                  // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, fieldset, input, footer, nav").hide();
+                $("#message").text("X wins!");
 
-                // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/iVfCqyp.jpg)");
+                // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3,fieldset, input, footer, nav").hide();
 
-                console.log("X won!");
+                // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/yuj3hc1.png)");
+
+                // console.log("X won!");
 
 
               // horizontally O
               } else if ($("#R" + i + "C1").text() === "O" && $("#R" + i + "C1").text() === $("#R" + i + "C2").text() &&
               $("#R" + i + "C1").text() === $("#R" + i + "C3").text()) {
 
-                console.log("O won!");
+                // console.log("O won!");
+                $("#message").text("O wins!");
 
 
               // vertically X
             } else if ($("#R1" + "C" + i).text() === "X" && $("#R1" + "C" + i).text() === $("#R2" + "C" + i).text() &&
               $("#R1" + "C" + i).text() === $("#R3" + "C" + i).text()) {
 
+                  $("#message").text("X wins!");
+
                 // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, fieldset, input, footer, nav").hide();
 
-              // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/iVfCqyp.jpg)");
+              // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/IUPrz7E.png)");
 
-                console.log("X won!");
+                // console.log("X won!");
 
               } else if ($("#R1" + "C" + i).text() === "O" && $("#R1" + "C" + i).text() === $("#R2" + "C" + i).text() &&
                 $("#R1" + "C" + i).text() === $("#R3" + "C" + i).text()) {
 
-                  console.log("O won!");
+                  // console.log("O won!");
+                  $("#message").text("O wins!");
 
               }
 
@@ -57,33 +63,45 @@ const ui = require ('./auth/ui');
 
               // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, fieldset, input, footer, nav").hide();
 
-            // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/iVfCqyp.jpg)");
+            // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/IUPrz7E.png)");
 
-              console.log("X won!");
+              // console.log("X won!");
+
+                $("#message").text("X wins!");
 
 
             // diagonally O left to right
             } else if ($("#R1C1").text() === "O" &&  $("#R1C1").text() === $("#R2C2").text() && $("#R1C1").text() === $("#R3C3").text()) {
 
-              console.log("O won!");
+              // console.log("O won!");
+              $("#message").text("O wins!");
             }
+
 
             // diagonally X right to left
             if($("#R1C3").text() === "X" &&  $("#R1C3").text() === $("#R2C2").text() && $("#R1C3").text() === $("#R3C1").text()){
 
               // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, fieldset, input, footer, nav").hide();
 
-            // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/iVfCqyp.jpg)");
+            // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/IUPrz7E.png)");
 
 
-              console.log("X won!");
+              // console.log("X won!");
+                $("#message").text("X wins!");
 
 
 
             // diagonally X right to left
             } else if ($("#R1C3").text() === "O" &&  $("#R1C3").text() === $("#R2C2").text() && $("#R1C3").text() === $("#R3C1").text()) {
 
-              console.log("O won!");
+              // console.log("O won!");
+
+            // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, fieldset, input, footer, nav").hide();
+            //
+            // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/IUPrz7E.png)");
+              $("#message").text("O wins!");
+
+
             }
 
 
@@ -92,6 +110,8 @@ const ui = require ('./auth/ui');
 
 
 let game = function () {
+
+  // $("#message").show();
 
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
 
@@ -125,11 +145,6 @@ let whoWon = function () {
             cell.html("<span class='X'><b>X</b></span>");
             cell.val("X");
 
-
-// I have an array with 9 elements
-// I need to replace an element on a certain index that is connected with id of a box when it is clicked
-
-// So, each element in an array should represent an id of a box that is clicked
 
         // 1 element
               if ($("#R1C1").text() === "X"){
@@ -256,7 +271,7 @@ let whoWon = function () {
             }
 
 
-              console.log(gameBoard);
+              // console.log(gameBoard);
 
 
               let index = cell.data("index");
@@ -266,35 +281,8 @@ let whoWon = function () {
               .done(ui.onUpdate)
               .fail(ui.onError);
 
-              console.log(index);
-              console.log(value);
-
-
-// now I need to pass index and value every time box is clicked;
-
-// so if someone clicks gameBoard[0], the key will be [0] and value will be "X";
-
-            //
-            //   if($(this).val() === "X"){
-            //
-            //    gameBoard.splice(1,0, $(this));
-            //
-            //   }
-            //
-            //
-            // console.log(gameBoard);
-
-                        //
-                        // let index = gameBoard.indexOf("");
-                        //
-                        //     if (index !== -1) {
-                        //         gameBoard[index] = "X";
-                        //     }
-                        //
-                        //     console.log(gameBoard);
-
-
-
+              // console.log(index);
+              // console.log(value);
 
 
                  $(this).off();
@@ -431,7 +419,7 @@ let whoWon = function () {
                       }
 
 
-                        console.log(gameBoard);
+                        // console.log(gameBoard);
 
 
                         let index = cell.data("index");
@@ -440,10 +428,6 @@ let whoWon = function () {
                         api.update(index, value)
                         .done(ui.onUpdate)
                         .fail(ui.onError);
-
-
-
-
 
 
             $(this).off();
@@ -465,25 +449,49 @@ let whoWon = function () {
 $(document).ready(game());
 
 
-// $("#change-password, #sign-out, #game-create, #game-request, #game-update, .container, footer, nav").hide();
 
-// $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/HlnpcgY.png");
-//
-// $("body.container-fluid").css({'height': '1024px'});
-// $("body.container-fluid").css({'width': '2000px'});
-//
+
+$("#change-password, #sign-out, #game-create, #game-request, #game-update, .container, footer, nav, #message1").hide();
+
+
+$("body.container-fluid").css("background-image" , "url(http://i.imgur.com/Q7WjLwN.png");
+
+$("#button1, #button2").on("click", function () {
+
+  $(".container, footer, nav, #game-create").show();
+  $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/OQW1MIf.png");
+  $("#sign-in, #sign-up").hide();
+  $("#change-password, #sign-out").show();
+  $(".container, footer").hide();
+  $("#game-create").on("click", function () {
+    $(".container, footer").show();
+  });
+
+  $("#button3").on("click", function () {
+    $("#change-password").hide();
+    $("#message1").show();
+  });
+
+  $("#game-create").on("click", function () {
+    $("#message1").hide();
+  });
+
+  $("#sign-out").on("click", function () {
+    $("#sign-in, #sign-up").show();
+    $("#change-password, #sign-out, #game-create, #game-request, #game-update, .container, footer, nav").hide();
+    $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/Q7WjLwN.png");
+
+  });
+
+} );
+
+
 
 $("#reset-button").click(function () {
 
         $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").empty();
+        $("#message").empty();
         // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").val("");
         game();
 
   });
-
-
-  //
-  // module.exports = {
-  //    index,
-  //    value
-  // };
