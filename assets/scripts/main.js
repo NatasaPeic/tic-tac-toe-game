@@ -115,14 +115,14 @@ let game = function () {
 
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
 
-    let checkWinner = 0;
+    // let checkWinner = 0;
     let counter = 0;
 
 
 
 let whoWon = function () {
 
-         if(checkWinner === 0 && counter === 9){
+         if(counter === 9 ){
             $("#message").text("Let's call it a draw!");
          }
 
@@ -434,13 +434,18 @@ let whoWon = function () {
                  winner();
                  counter++;
                  whoWon();
+
+
                 //  alert(counter);
 
 
 
           }
+
+
         }
     );
+
 
 };
 
