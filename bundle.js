@@ -109,16 +109,12 @@ webpackJsonp([0],[
 
 	var onGetGame = function onGetGame(event) {
 
-	  event.preventDefault();
-
-	  api.show().done(ui.getSuccess).fail(ui.onError);
-	};
-
-	var onUpdateGame = function onUpdateGame(event) {
+	  var data = getFormFields(this);
+	  // console.log(data.game.id);
 
 	  event.preventDefault();
 
-	  api.update().done(ui.onUpdate).fail(ui.onError);
+	  api.show(data).done(ui.getSuccess).fail(ui.onError);
 	};
 
 	var addHandlers = function addHandlers() {
@@ -135,7 +131,7 @@ webpackJsonp([0],[
 	  $('#game-request').on('submit', onGetGame);
 
 	  //update a game
-	  $('#game-update').on('submit', onUpdateGame);
+	  // $('#game-update').on('submit', onUpdateGame);
 	};
 
 	module.exports = {
@@ -216,6 +212,9 @@ webpackJsonp([0],[
 
 	var app = __webpack_require__(6);
 
+	// const main = require('../main');
+
+
 	var signIn = function signIn(data) {
 	  return $.ajax({
 	    url: app.api + '/sign-in',
@@ -268,17 +267,16 @@ webpackJsonp([0],[
 	    headers: {
 	      Authorization: 'Token token=' + app.user.token
 	    },
-	    data: '{}'
-
+	    data: app.user
 	  });
 	};
 
-	var show = function show() {
+	var show = function show(data) {
 	  return $.ajax({
 
 	    method: 'GET',
-	    url: app.api + '/games/' + app.game.id,
-	    // data: app.game,
+	    url: app.api + '/games/' + data.game.id,
+	    data: app.game,
 	    headers: {
 	      Authorization: 'Token token=' + app.user.token
 	    }
@@ -286,7 +284,7 @@ webpackJsonp([0],[
 	  });
 	};
 
-	var update = function update() {
+	var update = function update(index, value) {
 	  return $.ajax({
 
 	    method: 'PATCH',
@@ -296,7 +294,15 @@ webpackJsonp([0],[
 	    headers: {
 	      Authorization: 'Token token=' + app.user.token
 	    },
-	    data: app.game
+	    data: {
+	      "game": {
+	        "cell": {
+	          "index": index,
+	          "value": value
+	        }
+
+	      }
+	    }
 
 	  });
 	};
@@ -363,6 +369,8 @@ webpackJsonp([0],[
 	  }
 
 	  app.game = data.game;
+	  // console.log(data.game.cells);
+
 
 	  // app.game = data.game;
 	  // // app.user = data.user
@@ -801,7 +809,8 @@ webpackJsonp([0],[
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
-	$("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").val("");
+	var api = __webpack_require__(5);
+	var ui = __webpack_require__(7);
 
 	var winner = function winner() {
 	  for (var i = 1; i <= 3; i++) {
@@ -813,28 +822,35 @@ webpackJsonp([0],[
 	    //horizontally X
 	    if ($("#R" + i + "C1").text() === "X" && $("#R" + i + "C1").text() === $("#R" + i + "C2").text() && $("#R" + i + "C1").text() === $("#R" + i + "C3").text()) {
 
-	      // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, fieldset, input, footer, nav").hide();
+	      $("#message").text("X wins!");
 
-	      // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/iVfCqyp.jpg)");
+	      // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3,fieldset, input, footer, nav").hide();
 
-	      console.log("X won!");
+	      // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/yuj3hc1.png)");
+
+	      // console.log("X won!");
+
 
 	      // horizontally O
 	    } else if ($("#R" + i + "C1").text() === "O" && $("#R" + i + "C1").text() === $("#R" + i + "C2").text() && $("#R" + i + "C1").text() === $("#R" + i + "C3").text()) {
 
-	      console.log("O won!");
+	      // console.log("O won!");
+	      $("#message").text("O wins!");
 
 	      // vertically X
 	    } else if ($("#R1" + "C" + i).text() === "X" && $("#R1" + "C" + i).text() === $("#R2" + "C" + i).text() && $("#R1" + "C" + i).text() === $("#R3" + "C" + i).text()) {
 
+	      $("#message").text("X wins!");
+
 	      // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, fieldset, input, footer, nav").hide();
 
-	      // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/iVfCqyp.jpg)");
+	      // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/IUPrz7E.png)");
 
-	      console.log("X won!");
+	      // console.log("X won!");
 	    } else if ($("#R1" + "C" + i).text() === "O" && $("#R1" + "C" + i).text() === $("#R2" + "C" + i).text() && $("#R1" + "C" + i).text() === $("#R3" + "C" + i).text()) {
 
-	      console.log("O won!");
+	      // console.log("O won!");
+	      $("#message").text("O wins!");
 	    }
 	  }
 
@@ -843,14 +859,17 @@ webpackJsonp([0],[
 
 	    // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, fieldset, input, footer, nav").hide();
 
-	    // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/iVfCqyp.jpg)");
+	    // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/IUPrz7E.png)");
 
-	    console.log("X won!");
+	    // console.log("X won!");
+
+	    $("#message").text("X wins!");
 
 	    // diagonally O left to right
 	  } else if ($("#R1C1").text() === "O" && $("#R1C1").text() === $("#R2C2").text() && $("#R1C1").text() === $("#R3C3").text()) {
 
-	    console.log("O won!");
+	    // console.log("O won!");
+	    $("#message").text("O wins!");
 	  }
 
 	  // diagonally X right to left
@@ -858,41 +877,36 @@ webpackJsonp([0],[
 
 	    // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, fieldset, input, footer, nav").hide();
 
-	    // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/iVfCqyp.jpg)");
+	    // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/IUPrz7E.png)");
 
 
-	    console.log("X won!");
+	    // console.log("X won!");
+	    $("#message").text("X wins!");
 
 	    // diagonally X right to left
 	  } else if ($("#R1C3").text() === "O" && $("#R1C3").text() === $("#R2C2").text() && $("#R1C3").text() === $("#R3C1").text()) {
 
-	    console.log("O won!");
+	    // console.log("O won!");
+
+	    // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, fieldset, input, footer, nav").hide();
+	    //
+	    // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/IUPrz7E.png)");
+	    $("#message").text("O wins!");
 	  }
 	};
 
 	var game = function game() {
+
+	  // $("#message").show();
 
 	  var gameBoard = ["", "", "", "", "", "", "", "", ""];
 
 	  var checkWinner = 0;
 	  var counter = 0;
 
-	  //
-	  //   if (myWinnerFlag == 0 && myStepCounter == 9) {
-	  // 		if(document.all) {
-	  // 			document.getElementById("PLAYER").innerText = "";
-	  // 			document.getElementById("WINNER").innerText = "Let's call it a draw!";
-	  // 		}
-	  // 		else {
-	  // 			document.getElementById("PLAYER").textContent = "";
-	  // 			document.getElementById("WINNER").textContent = "Let's call it a draw!";
-	  // 		}
-	  // 	}
-	  // }
-
 	  var whoWon = function whoWon() {
 
-	    if (checkWinner === 0 && counter === 9) {
+	    if (checkWinner === 0 && counter === 9 && !whoWon()) {
 	      alert("Nobody wins!");
 	    }
 	  };
@@ -910,65 +924,109 @@ webpackJsonp([0],[
 	      cell.html("<span class='X'><b>X</b></span>");
 	      cell.val("X");
 
-	      var index = gameBoard.indexOf("");
+	      // 1 element
+	      if ($("#R1C1").text() === "X") {
 
-	      if (index !== -1) {
-	        gameBoard[index] = "X";
+	        gameBoard[0] = $("#R1C1").text();
+
+	        gameBoard[0] = "X";
+	      } else if ($("#R1C1").text() === "O") {
+	        gameBoard[0] = "O";
+	      } else {
+	        gameBoard[0] = "";
 	      }
 
-	      //         let index = ;
-	      //
-	      //
-	      // for (let i = 0; i < gameBoard.length; i++) {
-	      //   gameBoard[key] = gameBoard[index];
-	      //   gameBoard[value] = gameBoard[value];
-	      //   console.log(gameBoard);
-	      // }
+	      // 2 element
+	      if ($("#R1C2").text() === "X") {
+
+	        gameBoard[1] = "X";
+	      } else if ($("#R1C2").text() === "O") {
+	        gameBoard[1] = "O";
+	      } else {
+	        gameBoard[1] = "";
+	      }
+
+	      // 3 element
+	      if ($("#R1C3").text() === "X") {
+
+	        gameBoard[2] = $("#R1C3").text();
+	      } else if ($("#R1C3").text() === "O") {
+	        gameBoard[2] = $("#R1C3").text();
+	      } else {
+	        gameBoard[2] = "";
+	      }
+
+	      // 4 element
+	      if ($("#R2C1").text() === "X") {
+
+	        gameBoard[3] = $("#R2C1").text();
+	      } else if ($("#R2C1").text() === "O") {
+	        gameBoard[3] = $("#R2C1").text();
+	      } else {
+	        gameBoard[3] = "";
+	      }
+
+	      // 5 element
+	      if ($("#R2C2").text() === "X") {
+
+	        gameBoard[4] = $("#R2C2").text();
+	      } else if ($("#R2C2").text() === "O") {
+	        gameBoard[4] = $("#R2C2").text();
+	      } else {
+	        gameBoard[4] = "";
+	      }
+
+	      // 6 element
+	      if ($("#R2C3").text() === "X") {
+
+	        gameBoard[5] = $("#R2C3").text();
+	      } else if ($("#R2C2").text() === "O") {
+	        gameBoard[5] = $("#R2C3").text();
+	      } else {
+	        gameBoard[5] = "";
+	      }
+
+	      // 7 element
+	      if ($("#R3C1").text() === "X") {
+
+	        gameBoard[6] = $("#R3C1").text();
+	      } else if ($("#R3C1").text() === "O") {
+	        gameBoard[6] = $("#R3C1").text();
+	      } else {
+	        gameBoard[6] = "";
+	      }
+
+	      // 8 element
+	      if ($("#R3C2").text() === "X") {
+
+	        gameBoard[7] = $("#R3C2").text();
+	      } else if ($("#R3C2").text() === "O") {
+	        gameBoard[7] = $("#R3C2").text();
+	      } else {
+	        gameBoard[7] = "";
+	      }
+
+	      // 8 element
+	      if ($("#R3C3").text() === "X") {
+
+	        gameBoard[8] = $("#R3C3").text();
+	      } else if ($("#R3C3").text() === "O") {
+	        gameBoard[8] = $("#R3C3").text();
+	      } else {
+	        gameBoard[8] = "";
+	      }
+
+	      // console.log(gameBoard);
 
 
-	      // let key=[];
-	      // let value=[];
-	      //
-	      // gameBoard.forEach(function(){
-	      //
-	      //   for (let i = 0; i < gameBoard.length; i++) {
-	      //
-	      //     key.push(i);
-	      //     value.push(i);
-	      //   }
-	      //
-	      // });
-	      //
-	      // console.log(key);
+	      var index = cell.data("index");
+	      var value = cell.val();
+
+	      api.update(index, value).done(ui.onUpdate).fail(ui.onError);
+
+	      // console.log(index);
 	      // console.log(value);
 
-
-	      // for (let key in gameBoard) {
-	      //   console.log("key " + key + " has value " + gameBoard[key]);
-	      // }
-
-
-	      // $.each(gameBoard, function(key, value) {
-	      //     console.log(key);
-	      //     console.log(value);
-	      // });
-
-
-	      // $.each(gameBoard, function(key, value) {
-	      //       // alert(key);
-	      //       alert(value);
-	      // });
-
-
-	      //
-	      // for (let i = 0; i < index; i++) {
-	      //   let newIndex = gameBoard[i];
-	      //
-	      //   alert(newIndex);
-	      // }
-
-
-	      console.log(gameBoard);
 
 	      $(this).off();
 
@@ -983,20 +1041,103 @@ webpackJsonp([0],[
 	      cell.html("<span class='O'><b>O</b></span>");
 	      cell.val("O");
 
-	      var _index = gameBoard.indexOf("");
+	      // 1 element
+	      if ($("#R1C1").text() === "X") {
 
-	      if (_index !== -1) {
-	        gameBoard[_index] = "O";
+	        gameBoard[0] = $("#R1C1").text();
+	      } else if ($("#R1C1").text() === "O") {
+	        gameBoard[0] = $("#R1C1").text();
+	      } else {
+	        gameBoard[0] = "";
 	      }
 
-	      console.log(gameBoard);
+	      // 2 element
+	      if ($("#R1C2").text() === "X") {
 
-	      // for (let i = 0; i < index ; i++) {
-	      //   let newIndex = gameBoard[i];
-	      //
-	      //   alert(newIndex);
-	      // }
+	        gameBoard[1] = "X";
+	      } else if ($("#R1C2").text() === "O") {
+	        gameBoard[1] = "O";
+	      } else {
+	        gameBoard[1] = "";
+	      }
 
+	      // 3 element
+	      if ($("#R1C3").text() === "X") {
+
+	        gameBoard[2] = $("#R1C3").text();
+	      } else if ($("#R1C3").text() === "O") {
+	        gameBoard[2] = $("#R1C3").text();
+	      } else {
+	        gameBoard[2] = "";
+	      }
+
+	      // 4 element
+	      if ($("#R2C1").text() === "X") {
+
+	        gameBoard[3] = $("#R2C1").text();
+	      } else if ($("#R2C1").text() === "O") {
+	        gameBoard[3] = $("#R2C1").text();
+	      } else {
+	        gameBoard[3] = "";
+	      }
+
+	      // 5 element
+	      if ($("#R2C2").text() === "X") {
+
+	        gameBoard[4] = $("#R2C2").text();
+	      } else if ($("#R2C2").text() === "O") {
+	        gameBoard[4] = $("#R2C2").text();
+	      } else {
+	        gameBoard[4] = "";
+	      }
+
+	      // 6 element
+	      if ($("#R2C3").text() === "X") {
+
+	        gameBoard[5] = $("#R2C3").text();
+	      } else if ($("#R2C2").text() === "O") {
+	        gameBoard[5] = $("#R2C3").text();
+	      } else {
+	        gameBoard[5] = "";
+	      }
+
+	      // 7 element
+	      if ($("#R3C1").text() === "X") {
+
+	        gameBoard[6] = $("#R3C1").text();
+	      } else if ($("#R3C1").text() === "O") {
+	        gameBoard[6] = $("#R3C1").text();
+	      } else {
+	        gameBoard[6] = "";
+	      }
+
+	      // 8 element
+	      if ($("#R3C2").text() === "X") {
+
+	        gameBoard[7] = $("#R3C2").text();
+	      } else if ($("#R3C2").text() === "O") {
+	        gameBoard[7] = $("#R3C2").text();
+	      } else {
+	        gameBoard[7] = "";
+	      }
+
+	      // 8 element
+	      if ($("#R3C3").text() === "X") {
+
+	        gameBoard[8] = $("#R3C3").text();
+	      } else if ($("#R3C3").text() === "O") {
+	        gameBoard[8] = $("#R3C3").text();
+	      } else {
+	        gameBoard[8] = "";
+	      }
+
+	      // console.log(gameBoard);
+
+
+	      var _index = cell.data("index");
+	      var _value = cell.val();
+
+	      api.update(_index, _value).done(ui.onUpdate).fail(ui.onError);
 
 	      $(this).off();
 
@@ -1010,49 +1151,44 @@ webpackJsonp([0],[
 
 	$(document).ready(game());
 
+	$("#change-password, #sign-out, #game-create, #game-request, #game-update, .container, footer, nav, #message1").hide();
+
+	$("body.container-fluid").css("background-image", "url(http://i.imgur.com/Q7WjLwN.png");
+
+	$("#button1, #button2").on("click", function () {
+
+	  $(".container, footer, nav, #game-create").show();
+	  $("body.container-fluid").css("background-image", "url(http://i.imgur.com/OQW1MIf.png");
+	  $("#sign-in, #sign-up").hide();
+	  $("#change-password, #sign-out").show();
+	  $(".container, footer").hide();
+	  $("#game-create").on("click", function () {
+	    $(".container, footer").show();
+	  });
+
+	  $("#button3").on("click", function () {
+	    $("#change-password").hide();
+	    $("#message1").show();
+	  });
+
+	  $("#game-create").on("click", function () {
+	    $("#message1").hide();
+	  });
+
+	  $("#sign-out").on("click", function () {
+	    $("#sign-in, #sign-up").show();
+	    $("#change-password, #sign-out, #game-create, #game-request, #game-update, .container, footer, nav").hide();
+	    $("body.container-fluid").css("background-image", "url(http://i.imgur.com/Q7WjLwN.png");
+	  });
+	});
+
 	$("#reset-button").click(function () {
 
 	  $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").empty();
-	  $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").val("");
+	  $("#message").empty();
+	  // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").val("");
 	  game();
 	});
-
-	// let myWinnerFlag = 0;
-	// let myStepCounter = 0;
-	// let myCurrentSymbol = "X";
-	//
-	//
-	//
-	// function myMarkCell(myCurrentCell) {
-	// 	let myCurrentText;
-	//
-	// 	  myCurrentText = myCurrentCell.textContent;
-	//
-	// 		myCurrentCell.textContent = myCurrentSymbol;
-	//
-	// 		myCurrentCell.style.background = "lightgrey";
-	//     myCurrentCell.style.textAlign = "center";
-	//
-	//
-	// 		if (myCurrentSymbol === "X") {
-	// 			myCurrentSymbol = "O";
-	//
-	//
-	// 		}
-	// 		else {
-	// 			myCurrentSymbol = "X";
-	//
-	// 		}
-	//
-	// 		myStepCounter++;
-	//
-	// 		myCheckWin();
-	// 	}
-
-	//
-	// function myCheckWin() {
-	//
-	// 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }
