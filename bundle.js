@@ -906,8 +906,8 @@ webpackJsonp([0],[
 
 	  var whoWon = function whoWon() {
 
-	    if (checkWinner === 0 && counter === 9 && !whoWon()) {
-	      alert("Nobody wins!");
+	    if (checkWinner === 0 && counter === 9) {
+	      $("#message").text("Let's call it a draw!");
 	    }
 	  };
 
@@ -1143,8 +1143,9 @@ webpackJsonp([0],[
 
 	      winner();
 	      counter++;
-	      //  alert(counter);
 	      whoWon();
+	      //  alert(counter);
+
 	    }
 	  });
 	};
@@ -1161,7 +1162,9 @@ webpackJsonp([0],[
 	  $("body.container-fluid").css("background-image", "url(http://i.imgur.com/OQW1MIf.png");
 	  $("#sign-in, #sign-up").hide();
 	  $("#change-password, #sign-out").show();
+
 	  $(".container, footer").hide();
+
 	  $("#game-create").on("click", function () {
 	    $(".container, footer").show();
 	  });
