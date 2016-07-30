@@ -25,18 +25,11 @@ As a user I want to sign out.
 
 # Approach
 
-```
 
-- HTML/CSS layout was created
-- Forms that were succesfully communicating with API when a user sign in, sign up and sign out were created.
-- Game logic implemented along with RESET GAME button
-- jQuery element manipulation
-- Play a game (create -- "POST") button was created
-- Show a game (show -- "GET") was created. Using console.log our current game is shown.
-- Update a game (update -- "PATACH") was created. Using console.log we can access to our current game at each state.
-
-```
-
-# Unsolved problems
-
-I was able to retreive the game state at each move ("PATCH"), but not loading current state once user signs out. 
+- HTML/CSS layout was created;
+- AJAX calls were created;
+- Game logic implemented;
+- jQuery elements manipulation;
+- "CLICK TO PLAY!" (create -- "POST") button was created;
+- "SHOW ALL GAMES"" button (show -- "GET") was created;
+- Update a game cosnole.log message (update -- "PATACH") was created.

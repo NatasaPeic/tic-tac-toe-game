@@ -59,13 +59,11 @@ const create = () => $.ajax({
 });
 
 
-
-
 const show = (data) => $.ajax({
 
       method: 'GET',
-      url: app.api + '/games/' + data.game.id,
-      data: app.game,
+      url: app.api + '/games/',
+      data,
       headers: {
         Authorization: 'Token token=' + app.user.token,
       }
