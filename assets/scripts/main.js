@@ -20,6 +20,9 @@ const ui = require ('./auth/ui');
 
                 $("#message").text("X wins!");
 
+                $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
+
+
                 // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3,fieldset, input, footer, nav").hide();
 
                 // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/yuj3hc1.png)");
@@ -34,12 +37,16 @@ const ui = require ('./auth/ui');
                 // console.log("O won!");
                 $("#message").text("O wins!");
 
+                $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
+
 
               // vertically X
             } else if ($("#R1" + "C" + i).text() === "X" && $("#R1" + "C" + i).text() === $("#R2" + "C" + i).text() &&
               $("#R1" + "C" + i).text() === $("#R3" + "C" + i).text()) {
 
                   $("#message").text("X wins!");
+
+                  $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
 
                 // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, fieldset, input, footer, nav").hide();
 
@@ -52,6 +59,8 @@ const ui = require ('./auth/ui');
 
                   // console.log("O won!");
                   $("#message").text("O wins!");
+
+                  $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
 
               }
 
@@ -69,12 +78,16 @@ const ui = require ('./auth/ui');
 
                 $("#message").text("X wins!");
 
+                $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
+
 
             // diagonally O left to right
             } else if ($("#R1C1").text() === "O" &&  $("#R1C1").text() === $("#R2C2").text() && $("#R1C1").text() === $("#R3C3").text()) {
 
               // console.log("O won!");
               $("#message").text("O wins!");
+
+              $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
             }
 
 
@@ -89,6 +102,8 @@ const ui = require ('./auth/ui');
               // console.log("X won!");
                 $("#message").text("X wins!");
 
+                $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
+
 
 
             // diagonally X right to left
@@ -101,11 +116,39 @@ const ui = require ('./auth/ui');
             // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/IUPrz7E.png)");
               $("#message").text("O wins!");
 
+              $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
+
 
             }
 
 
+            // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").data("value", "1");
+
+            // let cell = $(this);
+            //
+            // console.log(cell.data("value"));
+            //
+            // if(cell.data("value") === "1"){
+            //
+            //   $(".board").off();
+            //  //  console.log("Done");
+            //
+            // }
+
+
           };
+
+
+           let counter = 0;
+
+           let whoWon = function () {
+
+                   if(counter === 9 ){
+                      $("#message").text("Let's call it a draw!");
+                   }
+
+          };
+
 
 
 
@@ -116,22 +159,18 @@ let game = function () {
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
 
     // let checkWinner = 0;
-    let counter = 0;
 
 
+//data in win condition is 1
 
-let whoWon = function () {
 
-         if(counter === 9 ){
-            $("#message").text("Let's call it a draw!");
-         }
-
-};
+//data = 0, if turn later data=1
 
 
 
 
     let turn = "O";
+
 
     $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").click(function(){
 
@@ -139,10 +178,38 @@ let whoWon = function () {
 
       if(turn === "O"){
 
+        // && cell.data("value") === 0
+
             turn = "X";
+
+            // debugger;
+            // console.log(cell.data("value"));
+
+            // Value of each cell is 0
+            // Once it is clicked it gets value of 1
+
+            // let newVar = cell.data("value");
+            //
+            // console.log(newVar);
 
             cell.html("<span class='X'><b>X</b></span>");
             cell.val("X");
+
+
+
+            // cell.data("value", "1");
+
+
+            // debugger;
+            //
+            // cell.data("value", "1");
+            // console.log(cell.data("value"));
+
+            // if($("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").data("value") === 1){
+            //
+            //   alert("0");
+            //
+            // }
 
 
         // 1 element
@@ -288,7 +355,7 @@ let whoWon = function () {
 
                  winner();
                  counter++;
-                 whoWon();
+
                 //  alert(counter);
 
       } else {
@@ -297,6 +364,16 @@ let whoWon = function () {
 
             cell.html("<span class='O'><b>O</b></span>");
             cell.val("O");
+
+
+
+            // debugger;
+            //
+            // console.log(cell.data("value"));
+
+            // cell.data("value", "1");
+
+            // console.log(cell.data("value"));
 
 
 
@@ -428,26 +505,22 @@ let whoWon = function () {
                         .done(ui.onUpdate)
                         .fail(ui.onError);
 
-
-            $(this).off();
-
-                 winner();
-                 counter++;
-                 whoWon();
+                        $(this).off();
 
 
-                //  alert(counter);
+                         winner();
+                         counter++;
 
 
+                      //  alert(counter);
+                }
 
-          }
+              }
+          );
+      whoWon();
 
+    };
 
-        }
-    );
-
-
-};
 
 
 
@@ -463,22 +536,28 @@ $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/Q7WjL
 
 $("#button1, #button2").on("click", function () {
 
-  $(".container, footer, nav, #game-create").show();
+  $(".container, footer, nav, #game-create,  #button2").show();
   $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/OQW1MIf.png");
   $("#sign-in, #sign-up").hide();
   $("#change-password, #sign-out").show();
+
+  $("#sign-up").on("click", function () {
+    $("#sign-in").show();
+    $("#change-password").hide();
+  });
 
 
   $(".container, footer").hide();
 
 
   $("#game-create").on("click", function () {
-    $(".container, footer").show();
+    $(".container, footer, #game-request").show();
   });
 
   $("#button3").on("click", function () {
     $("#change-password").hide();
     $("#message1").show();
+
   });
 
   $("#game-create").on("click", function () {
@@ -493,6 +572,7 @@ $("#button1, #button2").on("click", function () {
   });
 
 } );
+
 
 
 

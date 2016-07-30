@@ -9,8 +9,60 @@ const onSuccess = function (data) {
   } else {
     console.log(data.games);
   }
+// debugger;
+// console.log(data.game.id);
 
-app.game = data.game;
+
+  app.game = data.game;
+
+  // let games = data.game.id;
+  // debugger;
+
+  // let obj = data.game.player_x;
+  // let player = JSON.stringify(obj);
+  // console.log(player);
+
+
+
+
+
+// $("#game-request").on("click", function () {
+//   $("#change-password, #sign-out, #game-create, #game-request").hide();
+  // $("#message3").text(games);
+
+  // let obj = data.game.player_x;
+  // let player = JSON.stringify(obj, null, 2);
+
+
+
+
+
+
+
+  // debugger;
+
+
+
+
+  // let objNew = JSON.parse(player);
+
+  //  alert(newObj);
+
+  // $("#message3").text(player);
+
+
+  // $("#message3").text("You have finished" + data.game.player_x);
+  // console.log(games);
+  // debugger;
+  // console.log(data.game.player_x);
+// });
+
+
+
+
+
+
+
 
 };
 
@@ -29,6 +81,14 @@ const signInSuccess = (data) => {
 };
 
 
+const signOutSuccess = () => {
+  console.log('You sign out succesfully!');
+  delete app.user;
+
+};
+
+
+
 //create a new game
 const getSuccess = (data) => {
 
@@ -41,10 +101,6 @@ const getSuccess = (data) => {
 app.game = data.game;
 // console.log(data.game.cells);
 
-
-
-
-
   // app.game = data.game;
   // // app.user = data.user
   // console.log(data.game);
@@ -52,12 +108,21 @@ app.game = data.game;
 };
 
 
-const signOutSuccess = () => {
-  console.log('You sign out succesfully!');
-  delete app.user;
+const failureSignIn = () => {
+
+
+
+     $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/Q7WjLwN.png");
+     $("#change-password, #sign-out, #game-create, #game-request, .container, footer, nav, #message1").hide();
+     $("#sign-in, #sign-up").show();
+
+    //  alert("Done");
+
+     $("#message3").html("<span><b>PLEASE ENTER VALID USER INFORMATION!</b></span>");
+
+
 
 };
-
 
 const failure = (error) => {
   console.error(error);
@@ -82,5 +147,6 @@ module.exports = {
   signOutSuccess,
   onSuccess,
   onUpdate,
-  getSuccess
+  getSuccess,
+  failureSignIn
 };

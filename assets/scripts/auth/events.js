@@ -32,8 +32,12 @@ const onSignIn = function (event) {
 
   api.signIn(data)
    .done(ui.signInSuccess)
-   .fail(ui.failure);
+   .fail(ui.failureSignIn);
+
+
 };
+
+
 
 
 
@@ -75,8 +79,11 @@ const onCreateGame = function (event) {
 
 const onGetGame = function(event){
 
-  let data = getFormFields(this);
-// console.log(data.game.id);
+  let data = ui.game;
+
+  // debugger;
+
+  // let gameId = (data.game.id);
 
   event.preventDefault();
 
@@ -85,6 +92,8 @@ const onGetGame = function(event){
     .fail(ui.onError);
 
 };
+
+
 
 
 
