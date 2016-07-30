@@ -81,7 +81,7 @@ webpackJsonp([0],[
 
 	  event.preventDefault();
 
-	  api.signIn(data).done(ui.signInSuccess).fail(ui.failure);
+	  api.signIn(data).done(ui.signInSuccess).fail(ui.failureSignIn);
 	};
 
 	var onChangePassword = function onChangePassword(event) {
@@ -109,8 +109,11 @@ webpackJsonp([0],[
 
 	var onGetGame = function onGetGame(event) {
 
-	  var data = getFormFields(this);
-	  // console.log(data.game.id);
+	  var data = ui.game;
+
+	  // debugger;
+
+	  // let gameId = (data.game.id);
 
 	  event.preventDefault();
 
@@ -275,8 +278,8 @@ webpackJsonp([0],[
 	  return $.ajax({
 
 	    method: 'GET',
-	    url: app.api + '/games/' + data.game.id,
-	    data: app.game,
+	    url: app.api + '/games/',
+	    data: data,
 	    headers: {
 	      Authorization: 'Token token=' + app.user.token
 	    }
@@ -335,18 +338,56 @@ webpackJsonp([0],[
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var app = __webpack_require__(6);
 
 	var onSuccess = function onSuccess(data) {
-	  if (data.game) {
-	    console.log(data.game);
-	  } else {
-	    console.log(data.games);
-	  }
+	  // if (data.game) {
+	  //   console.log(data.game);
+	  // } else {
+	  //   console.log(data.games);
+	  // }
+	  // debugger;
+	  // console.log(data.game.id);
+
 
 	  app.game = data.game;
+
+	  // let games = data.game.id;
+	  // debugger;
+
+	  // let obj = data.game;
+	  // let player = JSON.stringify(obj);
+	  // console.log(player);
+
+	  // console.log(app.game.length);
+
+
+	  // $("#game-request").on("click", function () {
+	  //   $("#change-password, #sign-out, #game-create, #game-request").hide();
+	  // $("#message3").text(games);
+
+	  // let obj = data.game.player_x;
+	  // let player = JSON.stringify(obj, null, 2);
+
+
+	  // debugger;
+
+
+	  // let objNew = JSON.parse(player);
+
+	  //  alert(newObj);
+	  //
+	  // $("#message3").text(player);
+
+
+	  // $("#message3").text("You have finished" + data.game.player_x);
+	  // console.log(games);
+	  // debugger;
+	  // console.log(data.game.player_x);
+	  // });
+
 	};
 
 	var success = function success(data) {
@@ -359,31 +400,103 @@ webpackJsonp([0],[
 	  console.log(data);
 	};
 
+	var signOutSuccess = function signOutSuccess() {
+	  $("#message3").text('You sign out succesfully!');
+	  delete app.user;
+	};
+
 	//create a new game
+
+
 	var getSuccess = function getSuccess(data) {
 
 	  if (data.game) {
+
 	    console.log(data.game);
 	  } else {
 	    console.log(data.games);
+
+	    // number of games per user
+	    //  alert(data.games.length);
 	  }
 
-	  app.game = data.game;
+	  //   if (data.game) {
+	  //     console.log(data.game);
+	  //   } else {
+	  //     console.log(data.games);
+	  //   }
+	  //
+	  // app.game = data.game;
 	  // console.log(data.game.cells);
-
 
 	  // app.game = data.game;
 	  // // app.user = data.user
 	  // console.log(data.game);
+
+
+	  $("#message3").text("The total number of played games by player_x is: " + data.games.length);
+
+	  $("#reset-button").on("click", function () {
+	    $("#message3, #game-request").hide();
+	    $("#game-create").show();
+	  });
+
+	  $("#button3").on("click", function () {
+	    $("#message3").hide();
+	    $("#change-password").hide();
+	    $("#game-request").hide();
+	  });
+
+	  $("#reset-button").on("click", function () {
+	    // $("#message1").hide();
+	    $("#change-password").show();
+
+	    // $("#game-request").hide();
+	  });
+
+	  // $("#game-create").on("click", function () {
+	  //   $("#game-request").hide();
+	  // })
+
+
+	  $("#sign-out").on("click", function () {
+	    $("#message3").hide();
+	  });
 	};
 
-	var signOutSuccess = function signOutSuccess() {
-	  console.log('You sign out succesfully!');
-	  delete app.user;
+	var failureSignIn = function failureSignIn() {
+
+	  $("body.container-fluid").css("background-image", "url(http://i.imgur.com/Q7WjLwN.png");
+	  $("#change-password, #sign-out, #game-create, #game-request, .container, footer, nav, #message1").hide();
+	  $("#sign-in, #sign-up").show();
+
+	  //  alert("Hey");
+
+
+	  $("#message3").html("<span><b>PLEASE ENTER VALID USER INFORMATION!</b></span>");
+	  $("#sign-up").hide();
+
+	  $("#button2").on("click", function () {
+	    $("#message3").hide();
+	  });
 	};
 
 	var failure = function failure(error) {
 	  console.error(error);
+
+	  $("body.container-fluid").css("background-image", "url(http://i.imgur.com/Q7WjLwN.png");
+	  $("#change-password, #sign-out, #game-create, #game-request, .container, footer, nav, #message1").hide();
+	  $("#sign-in, #sign-up").show();
+
+	  //  alert("Hey");
+
+
+	  $("#message3").html("<span><b>PLEASE ENTER VALID USER INFORMATION!</b></span>");
+	  $("#sign-up").hide();
+
+	  $("#button2").on("click", function () {
+	    $("#message3").hide();
+	  });
 	};
 
 	var onUpdate = function onUpdate(data) {
@@ -401,8 +514,10 @@ webpackJsonp([0],[
 	  signOutSuccess: signOutSuccess,
 	  onSuccess: onSuccess,
 	  onUpdate: onUpdate,
-	  getSuccess: getSuccess
+	  getSuccess: getSuccess,
+	  failureSignIn: failureSignIn
 	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
 /* 8 */
@@ -824,6 +939,8 @@ webpackJsonp([0],[
 
 	      $("#message").text("X wins!");
 
+	      $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
+
 	      // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3,fieldset, input, footer, nav").hide();
 
 	      // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/yuj3hc1.png)");
@@ -837,10 +954,14 @@ webpackJsonp([0],[
 	      // console.log("O won!");
 	      $("#message").text("O wins!");
 
+	      $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
+
 	      // vertically X
 	    } else if ($("#R1" + "C" + i).text() === "X" && $("#R1" + "C" + i).text() === $("#R2" + "C" + i).text() && $("#R1" + "C" + i).text() === $("#R3" + "C" + i).text()) {
 
 	      $("#message").text("X wins!");
+
+	      $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
 
 	      // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, fieldset, input, footer, nav").hide();
 
@@ -851,6 +972,8 @@ webpackJsonp([0],[
 
 	      // console.log("O won!");
 	      $("#message").text("O wins!");
+
+	      $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
 	    }
 	  }
 
@@ -865,11 +988,15 @@ webpackJsonp([0],[
 
 	    $("#message").text("X wins!");
 
+	    $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
+
 	    // diagonally O left to right
 	  } else if ($("#R1C1").text() === "O" && $("#R1C1").text() === $("#R2C2").text() && $("#R1C1").text() === $("#R3C3").text()) {
 
 	    // console.log("O won!");
 	    $("#message").text("O wins!");
+
+	    $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
 	  }
 
 	  // diagonally X right to left
@@ -883,6 +1010,8 @@ webpackJsonp([0],[
 	    // console.log("X won!");
 	    $("#message").text("X wins!");
 
+	    $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
+
 	    // diagonally X right to left
 	  } else if ($("#R1C3").text() === "O" && $("#R1C3").text() === $("#R2C2").text() && $("#R1C3").text() === $("#R3C1").text()) {
 
@@ -892,24 +1021,51 @@ webpackJsonp([0],[
 	    //
 	    // $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/IUPrz7E.png)");
 	    $("#message").text("O wins!");
+
+	    $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").off();
 	  }
+
+	  // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").data("value", "1");
+
+	  // let cell = $(this);
+	  //
+	  // console.log(cell.data("value"));
+	  //
+	  // if(cell.data("value") === "1"){
+	  //
+	  //   $(".board").off();
+	  //  //  console.log("Done");
+	  //
+	  // }
+
 	};
 
 	var game = function game() {
-
-	  // $("#message").show();
-
-	  var gameBoard = ["", "", "", "", "", "", "", "", ""];
-
-	  // let checkWinner = 0;
 	  var counter = 0;
 
 	  var whoWon = function whoWon() {
 
 	    if (counter === 9) {
 	      $("#message").text("Let's call it a draw!");
+
+	      counter = 0;
+
+	      return counter;
 	    }
 	  };
+
+	  // $("#message").show();
+
+	  var gameBoard = ["", "", "", "", "", "", "", "", ""];
+
+	  // let checkWinner = 0;
+
+
+	  //data in win condition is 1
+
+
+	  //data = 0, if turn later data=1
+
 
 	  var turn = "O";
 
@@ -919,10 +1075,37 @@ webpackJsonp([0],[
 
 	    if (turn === "O") {
 
+	      // && cell.data("value") === 0
+
 	      turn = "X";
+
+	      // debugger;
+	      // console.log(cell.data("value"));
+
+	      // Value of each cell is 0
+	      // Once it is clicked it gets value of 1
+
+	      // let newVar = cell.data("value");
+	      //
+	      // console.log(newVar);
 
 	      cell.html("<span class='X'><b>X</b></span>");
 	      cell.val("X");
+
+	      // cell.data("value", "1");
+
+
+	      // debugger;
+	      //
+	      // cell.data("value", "1");
+	      // console.log(cell.data("value"));
+
+	      // if($("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").data("value") === 1){
+	      //
+	      //   alert("0");
+	      //
+	      // }
+
 
 	      // 1 element
 	      if ($("#R1C1").text() === "X") {
@@ -1033,6 +1216,7 @@ webpackJsonp([0],[
 	      winner();
 	      counter++;
 	      whoWon();
+
 	      //  alert(counter);
 	    } else {
 
@@ -1040,6 +1224,15 @@ webpackJsonp([0],[
 
 	      cell.html("<span class='O'><b>O</b></span>");
 	      cell.val("O");
+
+	      // debugger;
+	      //
+	      // console.log(cell.data("value"));
+
+	      // cell.data("value", "1");
+
+	      // console.log(cell.data("value"));
+
 
 	      // 1 element
 	      if ($("#R1C1").text() === "X") {
@@ -1146,50 +1339,79 @@ webpackJsonp([0],[
 	      whoWon();
 
 	      //  alert(counter);
-
 	    }
 	  });
 	};
 
 	$(document).ready(game());
 
-	$("#change-password, #sign-out, #game-create, #game-request, #game-update, .container, footer, nav, #message1").hide();
+	$("#change-password, #sign-out,  #game-create, #game-request, #game-update, .container, footer, nav, #message1").hide();
 
 	$("body.container-fluid").css("background-image", "url(http://i.imgur.com/Q7WjLwN.png");
 
 	$("#button1, #button2").on("click", function () {
 
-	  $(".container, footer, nav, #game-create").show();
+	  $(".container, footer, nav, #game-create,  #button2").show();
 	  $("body.container-fluid").css("background-image", "url(http://i.imgur.com/OQW1MIf.png");
 	  $("#sign-in, #sign-up").hide();
 	  $("#change-password, #sign-out").show();
 
+	  $("#sign-up").on("click", function () {
+	    $("body.container-fluid").css("background-image", "url(http://i.imgur.com/Q7WjLwN.png");
+	    $("#sign-in").show();
+	    $("#change-password, nav, #sign-out, #game-create").hide();
+	  });
+
+	  $("#button2").on("click", function () {
+	    $("body.container-fluid").css("background-image", "url(http://i.imgur.com/Q7WjLwN.png");
+	    $("#change-password, #sign-out").show();
+	    $("nav").hide();
+	  });
+	  //
+	  // $("#game-create").on("click", function () {
+	  //   $("nav, footer").hide();
+	  // });
+
+
 	  $(".container, footer").hide();
 
 	  $("#game-create").on("click", function () {
-	    $(".container, footer").show();
+	    $(".container, footer, #game-request, #reset-button").show();
+	  });
+
+	  $("#sign-in").on("click", function () {
+	    $("body.container-fluid").css("background-image", "url(http://i.imgur.com/Q7WjLwN.png");
+	    $("nav").hide();
 	  });
 
 	  $("#button3").on("click", function () {
+
 	    $("#change-password").hide();
 	    $("#message1").show();
+	    $(".container, #reset-button").hide();
 	  });
 
-	  $("#game-create").on("click", function () {
+	  $("#game-create, #R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, #reset-button").on("click", function () {
 	    $("#message1").hide();
+	    $("#game-create").show();
+	    $("#change-password").show();
 	  });
 
 	  $("#sign-out").on("click", function () {
 	    $("#sign-in, #sign-up").show();
-	    $("#change-password, #sign-out, #game-create, #game-request, #game-update, .container, footer, nav").hide();
+	    $("#change-password, #sign-out, #game-create, #game-request, #game-update, .container, footer, nav, #message1").hide();
 	    $("body.container-fluid").css("background-image", "url(http://i.imgur.com/Q7WjLwN.png");
 	  });
+	});
+	$("#reset-button").on("click", function () {
+	  $(".container").hide();
 	});
 
 	$("#reset-button").click(function () {
 
 	  $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").empty();
 	  $("#message").empty();
+
 	  // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").val("");
 	  game();
 	});
