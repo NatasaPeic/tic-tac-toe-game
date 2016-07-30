@@ -22,7 +22,7 @@ const onSuccess = function (data) {
   // let player = JSON.stringify(obj);
   // console.log(player);
 
-// console.log(app.game.length);
+console.log(app.game.length);
 
 
 
@@ -32,6 +32,11 @@ const onSuccess = function (data) {
 
   // let obj = data.game.player_x;
   // let player = JSON.stringify(obj, null, 2);
+
+
+
+
+
 
 
   // debugger;
@@ -74,7 +79,7 @@ const signInSuccess = (data) => {
 
 
 const signOutSuccess = () => {
-  $("#message3").text('You sign out succesfully!');
+  console.log('You sign out succesfully!');
   delete app.user;
 
 };
@@ -89,7 +94,7 @@ const signOutSuccess = () => {
 
  if (data.game) {
 
-   console.log(data.game);
+  //  console.log(data.game);
 
  } else {
    console.log(data.games);
@@ -116,7 +121,7 @@ const signOutSuccess = () => {
   $("#message3").text("The total number of played games by player_x is: " + data.games.length);
 
   $("#reset-button").on("click", function () {
-  $("#message3, #game-request").hide();
+  $(" #game-request").hide();
   $("#game-create").show();
 
   });
