@@ -361,8 +361,7 @@ webpackJsonp([0],[
 	  // let player = JSON.stringify(obj);
 	  // console.log(player);
 
-	  // console.log(app.game.length);
-
+	  console.log(app.game.length);
 
 	  // $("#game-request").on("click", function () {
 	  //   $("#change-password, #sign-out, #game-create, #game-request").hide();
@@ -401,7 +400,7 @@ webpackJsonp([0],[
 	};
 
 	var signOutSuccess = function signOutSuccess() {
-	  $("#message3").text('You sign out succesfully!');
+	  console.log('You sign out succesfully!');
 	  delete app.user;
 	};
 
@@ -412,7 +411,8 @@ webpackJsonp([0],[
 
 	  if (data.game) {
 
-	    console.log(data.game);
+	    //  console.log(data.game);
+
 	  } else {
 	    console.log(data.games);
 
@@ -437,7 +437,7 @@ webpackJsonp([0],[
 	  $("#message3").text("The total number of played games by player_x is: " + data.games.length);
 
 	  $("#reset-button").on("click", function () {
-	    $("#message3, #game-request").hide();
+	    $(" #game-request").hide();
 	    $("#game-create").show();
 	  });
 
