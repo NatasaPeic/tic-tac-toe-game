@@ -171,7 +171,7 @@ const failureSignIn = () => {
 
 
      $("#message3").html("<span><b>PLEASE ENTER VALID USER INFORMATION!</b></span>");
-     $("#sign-up").hide();
+    
 
      $("#button2").on("click", function () {
      $("#message3").hide();
