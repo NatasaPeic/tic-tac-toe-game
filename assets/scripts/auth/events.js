@@ -94,10 +94,6 @@ const onGetGame = function(event){
 };
 
 
-
-
-
-
 const addHandlers = () => {
 
   $('#sign-up').on('submit', onSignUp);

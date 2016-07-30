@@ -139,12 +139,20 @@ const ui = require ('./auth/ui');
           };
 
 
-           let counter = 0;
+        let game = function () {
+          let counter = 0;
 
            let whoWon = function () {
 
                    if(counter === 9 ){
                       $("#message").text("Let's call it a draw!");
+
+                      counter = 0;
+
+                      return counter;
+
+
+
                    }
 
           };
@@ -152,7 +160,8 @@ const ui = require ('./auth/ui');
 
 
 
-let game = function () {
+
+
 
   // $("#message").show();
 
@@ -355,6 +364,7 @@ let gameBoard = ["", "", "", "", "", "", "", "", ""];
 
                  winner();
                  counter++;
+                 whoWon();
 
                 //  alert(counter);
 
@@ -510,6 +520,9 @@ let gameBoard = ["", "", "", "", "", "", "", "", ""];
 
                          winner();
                          counter++;
+                         whoWon();
+
+
 
 
                       //  alert(counter);
@@ -517,7 +530,7 @@ let gameBoard = ["", "", "", "", "", "", "", "", ""];
 
               }
           );
-      whoWon();
+
 
     };
 
@@ -529,12 +542,13 @@ $(document).ready(game());
 
 
 
-$("#change-password, #sign-out, #game-create, #game-request, #game-update, .container, footer, nav, #message1").hide();
+$("#change-password, #sign-out,  #game-create, #game-request, #game-update, .container, footer, nav, #message1").hide();
 
 
 $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/Q7WjLwN.png");
 
 $("#button1, #button2").on("click", function () {
+
 
   $(".container, footer, nav, #game-create,  #button2").show();
   $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/OQW1MIf.png");
@@ -542,36 +556,73 @@ $("#button1, #button2").on("click", function () {
   $("#change-password, #sign-out").show();
 
   $("#sign-up").on("click", function () {
+    $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/Q7WjLwN.png");
     $("#sign-in").show();
-    $("#change-password").hide();
+    $("#change-password, nav, #sign-out, #game-create").hide();
   });
+
+
+
+
+  $("#button2").on("click", function () {
+    $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/Q7WjLwN.png");
+    $("#change-password, #sign-out").show();
+    $("nav").hide();
+  });
+  //
+  // $("#game-create").on("click", function () {
+  //   $("nav, footer").hide();
+  // });
 
 
   $(".container, footer").hide();
 
 
   $("#game-create").on("click", function () {
-    $(".container, footer, #game-request").show();
+    $(".container, footer, #game-request, #reset-button").show();
+
+  });
+
+  $("#sign-in").on("click", function () {
+    $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/Q7WjLwN.png");
+    $("nav").hide();
   });
 
   $("#button3").on("click", function () {
+
     $("#change-password").hide();
     $("#message1").show();
+    $(".container, #reset-button").hide();
+
 
   });
 
-  $("#game-create").on("click", function () {
+
+  $("#game-create, #R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, #reset-button").on("click", function () {
     $("#message1").hide();
+    $("#game-create").show();
+    $("#change-password").show();
+
+
   });
 
   $("#sign-out").on("click", function () {
     $("#sign-in, #sign-up").show();
-    $("#change-password, #sign-out, #game-create, #game-request, #game-update, .container, footer, nav").hide();
+    $("#change-password, #sign-out, #game-create, #game-request, #game-update, .container, footer, nav, #message1").hide();
     $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/Q7WjLwN.png");
 
   });
 
+
+
 } );
+$("#reset-button").on("click", function () {
+  $(".container").hide();
+
+
+
+
+});
 
 
 
@@ -580,6 +631,7 @@ $("#reset-button").click(function () {
 
         $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").empty();
         $("#message").empty();
+
         // $("#R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3").val("");
         game();
 

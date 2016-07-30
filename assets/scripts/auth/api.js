@@ -59,8 +59,6 @@ const create = () => $.ajax({
 });
 
 
-
-
 const show = (data) => $.ajax({
 
       method: 'GET',
@@ -71,10 +69,6 @@ const show = (data) => $.ajax({
       }
 
 });
-
-
-
-
 
 
 
