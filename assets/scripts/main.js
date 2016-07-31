@@ -550,6 +550,8 @@ $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/Q7WjL
 $("#button1, #button2").on("click", function () {
 
 
+
+
   $(".container, footer, nav, #game-create,  #button2").show();
   $("body.container-fluid").css("background-image" , "url(http://i.imgur.com/OQW1MIf.png");
   $("#sign-in, #sign-up").hide();
@@ -593,9 +595,14 @@ $("#button1, #button2").on("click", function () {
     $("#change-password").hide();
     $("#message1").show();
     $(".container, #reset-button").hide();
+    $("#sign-in").show();
 
 
   });
+
+    $("#sign-in").on("click", function () {
+        $("#message1").hide();
+    });
 
 
   $("#game-create, #R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, #reset-button").on("click", function () {

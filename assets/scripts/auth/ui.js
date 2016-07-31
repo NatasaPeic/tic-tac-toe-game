@@ -118,13 +118,18 @@ const signOutSuccess = () => {
 
 
 
-  $("#message3").text("The total number of played games by player_x is: " + data.games.length);
+  $("#message3").text("You have played " + data.games.length + " games!");
 
   $("#reset-button").on("click", function () {
   $(" #game-request").hide();
   $("#game-create").show();
+  
 
   });
+
+
+
+
 
   $("#button3").on("click", function () {
     $("#message3").hide();
@@ -171,7 +176,7 @@ const failureSignIn = () => {
 
 
      $("#message3").html("<span><b>PLEASE ENTER VALID USER INFORMATION!</b></span>");
-    
+
 
      $("#button2").on("click", function () {
      $("#message3").hide();
