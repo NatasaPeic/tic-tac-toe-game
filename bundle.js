@@ -434,7 +434,7 @@ webpackJsonp([0],[
 	  // console.log(data.game);
 
 
-	  $("#message3").text("The total number of played games by player_x is: " + data.games.length);
+	  $("#message3").text("You have played " + data.games.length + " games!");
 
 	  $("#reset-button").on("click", function () {
 	    $(" #game-request").hide();
@@ -1388,6 +1388,11 @@ webpackJsonp([0],[
 	    $("#change-password").hide();
 	    $("#message1").show();
 	    $(".container, #reset-button").hide();
+	    $("#sign-in").show();
+	  });
+
+	  $("#sign-in").on("click", function () {
+	    $("#message1").hide();
 	  });
 
 	  $("#game-create, #R1C1, #R1C2, #R1C3, #R2C1, #R2C2, #R2C3, #R3C1, #R3C2, #R3C3, #reset-button").on("click", function () {
